@@ -18,6 +18,7 @@ class LoginPage extends StatelessWidget {
   
   Widget _crearBody(BuildContext context) {
     return SingleChildScrollView(
+      reverse: true,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -25,7 +26,8 @@ class LoginPage extends StatelessWidget {
           _createTextFieldEmail(),
           _createTextFieldPassword(),
           _createLoginButton(),
-          _createButtonDontHaveAccount()
+          _createButtonDontHaveAccount(),
+          Padding(padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom))
         ],
       ),
     );
@@ -42,11 +44,11 @@ class LoginPage extends StatelessWidget {
         decoration: InputDecoration(
           border: InputBorder.none,
           hintText: 'login-email'.tr,
-          hintStyle: TextStyle(
+          hintStyle: const TextStyle(
             color: app.COLOR_PRIMARY
           ),
-          contentPadding: EdgeInsets.all(15),
-          prefixIcon: Icon(Icons.email, color: app.COLOR_PRIMARY)
+          contentPadding: const EdgeInsets.all(15),
+          prefixIcon: const Icon(Icons.email, color: app.COLOR_PRIMARY)
         ),
       ),
     );
@@ -54,7 +56,7 @@ class LoginPage extends StatelessWidget {
 
   Widget _createTextFieldPassword() {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 50, vertical: 10),
+      margin: const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
       decoration: BoxDecoration(
         color: app.COLOR_SECONDARY,
         borderRadius: BorderRadius.circular(30)
@@ -63,11 +65,11 @@ class LoginPage extends StatelessWidget {
         decoration: InputDecoration(
           border: InputBorder.none,
           hintText: 'login-password'.tr,
-          hintStyle: TextStyle(
+          hintStyle: const TextStyle(
             color: app.COLOR_PRIMARY,
           ),
-          contentPadding: EdgeInsets.all(15),
-          prefixIcon: Icon(Icons.lock, color: app.COLOR_PRIMARY)
+          contentPadding: const EdgeInsets.all(15),
+          prefixIcon: const Icon(Icons.lock, color: app.COLOR_PRIMARY)
         ),
       ),
     );
@@ -76,7 +78,7 @@ class LoginPage extends StatelessWidget {
   Widget _createLoginButton() {
     return Container(
       width: double.infinity,
-      margin: EdgeInsets.symmetric(horizontal: 50, vertical: 10),
+      margin: const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
       child: ElevatedButton(
         onPressed: () => Get.updateLocale(Locale('es', 'ES')),
         child: Text('login-button'.tr),
@@ -85,7 +87,7 @@ class LoginPage extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30)
           ),
-          padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15)
+          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15)
         )
       ),
     );

@@ -200,17 +200,17 @@ class SignUpPage extends StatelessWidget {
   Widget _createRegisterButton() {
     return Container(
       width: double.infinity,
-      margin: const EdgeInsets.symmetric(horizontal: 50, vertical: 7),
+      margin: const EdgeInsets.symmetric(horizontal: 50, vertical: 12),
       child: ElevatedButton(
         onPressed: () => {},
-        child: Text('sign-up-button'.tr),
         style: ElevatedButton.styleFrom(
           primary: app.COLOR_PRIMARY,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30)
           ),
           padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15)
-        )
+        ),
+        child: Text('sign-up-button'.tr),
       ),
     );
   }
@@ -219,60 +219,18 @@ class SignUpPage extends StatelessWidget {
     return Row (
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text('sign-up-account'.tr, style: TextStyle(color: app.COLOR_PRIMARY)),
+        Text('sign-up-account'.tr, style: const TextStyle(color: app.COLOR_PRIMARY)),
         FlatButton(
           onPressed: () => Get.back(),
           child: Text(
             'sign-up-login-button'.tr,
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.bold
             )
           )
         )
       ],
-    );
-  }
-  
-  Widget _createBannerLogo(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(
-        bottom: MediaQuery.of(context).size.height * 0.1
-      ),
-      child: Column(
-        children: [
-          Container(
-            margin: EdgeInsets.only(top: 50),
-            child: Icon(
-              Icons.mark_chat_unread,
-              size: 100,
-              color: app.COLOR_PRIMARY,
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.only(top: 10),
-            child: Text(
-              'title-banner'.tr,
-              style: TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
-                color: app.COLOR_PRIMARY
-              )
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.only(top: 10),
-            child: Text(
-              'subtitle-banner'.tr,
-              style: TextStyle(
-                fontSize: 11,
-                fontWeight: FontWeight.bold,
-                color: app.COLOR_PRIMARY
-              )
-            ),
-          )
-        ]
-      ),
     );
   }
   

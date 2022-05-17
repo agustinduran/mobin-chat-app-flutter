@@ -81,14 +81,14 @@ class LoginPage extends StatelessWidget {
       margin: const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
       child: ElevatedButton(
         onPressed: () => Get.updateLocale(Locale('es', 'ES')),
-        child: Text('login-button'.tr),
         style: ElevatedButton.styleFrom(
           primary: app.COLOR_PRIMARY,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30)
           ),
           padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15)
-        )
+        ),
+        child: Text('login-button'.tr)
       ),
     );
   }
@@ -97,12 +97,12 @@ class LoginPage extends StatelessWidget {
     return Row (
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text('login-no-account'.tr, style: TextStyle(color: app.COLOR_PRIMARY)),
+        Text('login-no-account'.tr, style: const TextStyle(color: app.COLOR_PRIMARY)),
         FlatButton(
           onPressed: () => Get.toNamed(app.PATH_SIGN_UP_PAGE),
           child: Text(
             'login-register-button'.tr,
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.bold
             )
@@ -120,18 +120,18 @@ class LoginPage extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            margin: EdgeInsets.only(top: 50),
-            child: Icon(
+            margin: const EdgeInsets.only(top: 50),
+            child: const Icon(
               Icons.mark_chat_unread,
               size: 100,
               color: app.COLOR_PRIMARY,
             ),
           ),
           Container(
-            margin: EdgeInsets.only(top: 10),
+            margin: const EdgeInsets.only(top: 10),
             child: Text(
               'title-banner'.tr,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 30,
                 fontWeight: FontWeight.bold,
                 color: app.COLOR_PRIMARY
@@ -139,10 +139,10 @@ class LoginPage extends StatelessWidget {
             ),
           ),
           Container(
-            margin: EdgeInsets.only(top: 10),
+            margin: const EdgeInsets.only(top: 10),
             child: Text(
               'subtitle-banner'.tr,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 11,
                 fontWeight: FontWeight.bold,
                 color: app.COLOR_PRIMARY

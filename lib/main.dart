@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobin_app/app/data/constants.dart' as app;
+import 'package:mobin_app/app/data/traslation/messages_traslations.dart';
 import 'package:mobin_app/app/presentation/pages/login/login_page.dart';
 import 'package:mobin_app/app/presentation/pages/sign_up/sign_up_page.dart';
 
@@ -15,7 +16,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Mobin App',
+      title: 'title-app'.tr,
+      translations: MessageTranslations(),
+      locale: Get.deviceLocale,
       initialRoute: app.PATH_LOGIN_PAGE,
       getPages: [
         GetPage(

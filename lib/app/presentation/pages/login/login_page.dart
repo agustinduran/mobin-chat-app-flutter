@@ -41,7 +41,7 @@ class LoginPage extends StatelessWidget {
       child: TextField(
         decoration: InputDecoration(
           border: InputBorder.none,
-          hintText: 'Correo electrónico',
+          hintText: 'login-email'.tr,
           hintStyle: TextStyle(
             color: app.COLOR_PRIMARY
           ),
@@ -62,7 +62,7 @@ class LoginPage extends StatelessWidget {
       child: TextField(
         decoration: InputDecoration(
           border: InputBorder.none,
-          hintText: 'Contraseña',
+          hintText: 'login-password'.tr,
           hintStyle: TextStyle(
             color: app.COLOR_PRIMARY,
           ),
@@ -78,8 +78,8 @@ class LoginPage extends StatelessWidget {
       width: double.infinity,
       margin: EdgeInsets.symmetric(horizontal: 50, vertical: 10),
       child: ElevatedButton(
-        onPressed: () => Get.toNamed(app.PATH_SIGN_UP_PAGE),
-        child: Text('INGRESAR'),
+        onPressed: () => Get.updateLocale(Locale('es', 'ES')),
+        child: Text('login-button'.tr),
         style: ElevatedButton.styleFrom(
           primary: app.COLOR_PRIMARY,
           shape: RoundedRectangleBorder(
@@ -95,11 +95,11 @@ class LoginPage extends StatelessWidget {
     return Row (
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text('¿No tenés cuenta?', style: TextStyle(color: app.COLOR_PRIMARY)),
+        Text('login-no-account'.tr, style: TextStyle(color: app.COLOR_PRIMARY)),
         FlatButton(
           onPressed: () => Get.toNamed(app.PATH_SIGN_UP_PAGE),
           child: Text(
-            'Registrate',
+            'login-register-button'.tr,
             style: TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.bold
@@ -128,7 +128,7 @@ class LoginPage extends StatelessWidget {
           Container(
             margin: EdgeInsets.only(top: 10),
             child: Text(
-              'MOBIN',
+              'title-banner'.tr,
               style: TextStyle(
                 fontSize: 30,
                 fontWeight: FontWeight.bold,
@@ -139,7 +139,7 @@ class LoginPage extends StatelessWidget {
           Container(
             margin: EdgeInsets.only(top: 10),
             child: Text(
-              'Chat App & Message',
+              'subtitle-banner'.tr,
               style: TextStyle(
                 fontSize: 11,
                 fontWeight: FontWeight.bold,

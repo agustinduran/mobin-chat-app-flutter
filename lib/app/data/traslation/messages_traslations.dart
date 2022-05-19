@@ -15,7 +15,7 @@ class MessageTranslations extends Translations {
       'login-register-button' : 'Register',
       'login-button' : 'Login',
       // SIGN-UP PAGE
-      'title-sign-up' : 'Register',
+      'title-sign-up' : 'REGISTER',
       'sign-up-email' : 'Email',
       'sign-up-password' : 'Password',
       'sign-up-password-conf' : 'Confirmate password',
@@ -38,7 +38,7 @@ class MessageTranslations extends Translations {
       'login-register-button' : 'Registrate',
       'login-button' : 'INGRESAR',
       // SIGN-UP PAGE
-      'title-sign-up' : 'Registro',
+      'title-sign-up' : 'REGISTRO',
       'sign-up-email' : 'Correo electrónico',
       'sign-up-password' : 'Contraseña',
       'sign-up-password-conf' : 'Confirmar contraseña',

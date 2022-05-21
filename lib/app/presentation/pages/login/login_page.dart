@@ -46,11 +46,12 @@ class LoginPage extends StatelessWidget {
         borderRadius: BorderRadius.circular(30)
       ),
       child: TextFormField(
+        maxLength: 80,
         controller: controller.emailController,
         autofillHints: const [AutofillHints.email],
         validator: (value) {
           if (value!.isEmpty) {
-            return 'email-required'.tr;
+            return 'email-username-required'.tr;
           }
           return null;
         },
@@ -76,6 +77,7 @@ class LoginPage extends StatelessWidget {
         borderRadius: BorderRadius.circular(30)
       ),
       child: TextFormField(
+        maxLength: 40,
         controller: controller.passwordController,
         obscureText: true,
         autofillHints: const [AutofillHints.password],

@@ -63,6 +63,7 @@ class SignUpPage extends StatelessWidget {
         borderRadius: BorderRadius.circular(30)
       ),
       child: TextFormField(
+        maxLength: 40,
         autofillHints: const [AutofillHints.username],
         controller: controller.usernameController,
         decoration: InputDecoration(
@@ -74,7 +75,6 @@ class SignUpPage extends StatelessWidget {
           contentPadding: const EdgeInsets.all(15),
           prefixIcon: const Icon(Icons.person, color: app.COLOR_PRIMARY),
         ),
-        // TODO: validator
         validator: (value) {
           if (value!.isEmpty) {
             return 'username-required'.tr;
@@ -93,8 +93,8 @@ class SignUpPage extends StatelessWidget {
         borderRadius: BorderRadius.circular(30)
       ),
       child: TextFormField(
+        maxLength: 40,
         keyboardType: TextInputType.visiblePassword,
-        // TODO: validator
         // TODO: Show password
         controller: controller.passwordController,
         obscureText: true,
@@ -126,8 +126,8 @@ class SignUpPage extends StatelessWidget {
         borderRadius: BorderRadius.circular(30)
       ),
       child: TextFormField(
-        // TODO: Validator
         // TODO: Show password
+        maxLength: 40,
         keyboardType: TextInputType.visiblePassword,
         controller: controller.confirmatePasswordController,
         obscureText: true,
@@ -159,6 +159,7 @@ class SignUpPage extends StatelessWidget {
         borderRadius: BorderRadius.circular(30)
       ),
       child: TextFormField(
+        maxLength: 80,
         controller: controller.nameController,
         autofillHints: const [AutofillHints.name],
         keyboardType: TextInputType.name,
@@ -189,6 +190,7 @@ class SignUpPage extends StatelessWidget {
         borderRadius: BorderRadius.circular(30)
       ),
       child: TextFormField(
+        maxLength: 80,
         autofillHints: const [AutofillHints.familyName],
         keyboardType: TextInputType.name,
         controller: controller.surnameController,
@@ -219,6 +221,7 @@ class SignUpPage extends StatelessWidget {
         borderRadius: BorderRadius.circular(30)
       ),
       child: TextFormField(
+        maxLength: 80,
         autofillHints: const [AutofillHints.email],
         controller: controller.emailController,
         keyboardType: TextInputType.emailAddress,
@@ -253,6 +256,7 @@ class SignUpPage extends StatelessWidget {
         borderRadius: BorderRadius.circular(30)
       ),
       child: TextFormField(
+        maxLength: 40,
         autofillHints: const [AutofillHints.telephoneNumber],
         controller: controller.phoneController,
         keyboardType: TextInputType.phone,

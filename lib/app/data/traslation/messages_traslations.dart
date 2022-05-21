@@ -26,6 +26,17 @@ class MessageTranslations extends Translations {
       'sign-up-account' : 'Have an account?',
       'sign-up-login-button' : 'Login',
       'sign-up-button' : 'Register',
+      // FORM VALIDATIONS
+      'email-required' : 'Email is required',
+      'email-username-required' : 'Email or username is required',
+      'password-required' : 'Password is required',
+      'password-doesnt-match' : 'Both password doesn\'t match',
+      'name-required' : 'Name is required',
+      'username-required' : 'Username is required',
+      'surname-required' : 'Surname is required',
+      'email-invalid' : 'Email is invalid',
+      'phone-required' : 'Phone is required',
+      'phone-invalid' : 'Phone is invalid',
     },
     'es_ES' : {
       'title-app' : 'Test title spanish',
@@ -49,6 +60,17 @@ class MessageTranslations extends Translations {
       'sign-up-account' : '¿Tenés cuenta?',
       'sign-up-login-button' : 'Ingresar',
       'sign-up-button' : 'Registrarse',
+      // FORM VALIDATIONS
+      'email-required' : 'Email es requerido',
+      'email-username-required' : 'Email o usuario es requerido',
+      'password-required' : 'Contraseña es requerida',
+      'password-doesnt-match' : 'Las contraseñas no son iguales',
+      'name-required' : 'Nombre es requerido',
+      'username-required' : 'Usuario es requerido',
+      'surname-required' : 'Apellido es requerido',
+      'email-invalid' : 'Email inválido',
+      'phone-required' : 'Teléfono es requerido',
+      'phone-invalid' : 'Teléfono inválido',
     },
   };
 

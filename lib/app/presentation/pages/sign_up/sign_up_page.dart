@@ -122,7 +122,7 @@ class SignUpPage extends StatelessWidget {
           if (value!.isEmpty) {
             return 'password-required'.tr;
           }
-          // TODO: Match
+          controller.firstPasswordToCompare.value = value;
           return null;
         }
       ),
@@ -164,9 +164,10 @@ class SignUpPage extends StatelessWidget {
         validator: (value) {
           if (value!.isEmpty) {
             return 'password-required'.tr;
+          } else if (value.compareTo(controller.firstPasswordToCompare.value) != 0) {
+            return 'password-doesnt-match'.tr;
           }
           return null;
-          // TODO: Match
         }
       ),
     );

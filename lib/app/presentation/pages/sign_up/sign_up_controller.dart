@@ -14,6 +14,8 @@ class SignUpController extends GetxController {
   RxBool hidePassword = true.obs;
   RxBool hideConfirmPassword = true.obs;
 
+  RxString firstPasswordToCompare = ''.obs;
+
   final formKeySignUp = GlobalKey<FormState>();
 
   void register(/*BuildContext context*/) {

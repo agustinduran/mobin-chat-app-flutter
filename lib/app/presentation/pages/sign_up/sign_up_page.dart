@@ -26,8 +26,8 @@ class SignUpPage extends StatelessWidget {
             const SizedBox(height: 30),
             _createBannerRegister(),
             _createTextFieldUsername(),
-            _createTextFieldPassword(),
-            _createTextFieldPasswordConfirmation(),
+            Obx(() =>_createTextFieldPassword()),
+            Obx(() =>_createTextFieldPasswordConfirmation()),
             _createTextFieldName(),
             _createTextFieldSurname(),
             _createTextFieldEmail(),
@@ -67,6 +67,7 @@ class SignUpPage extends StatelessWidget {
         autofillHints: const [AutofillHints.username],
         controller: controller.usernameController,
         decoration: InputDecoration(
+          counterText: '',
           border: InputBorder.none,
           hintText: 'sign-up-username'.tr,
           hintStyle: const TextStyle(
@@ -95,17 +96,27 @@ class SignUpPage extends StatelessWidget {
       child: TextFormField(
         maxLength: 40,
         keyboardType: TextInputType.visiblePassword,
-        // TODO: Show password
         controller: controller.passwordController,
-        obscureText: true,
+        obscureText: controller.hidePassword.value,
         decoration: InputDecoration(
+          counterText: '',
           border: InputBorder.none,
           hintText: 'sign-up-password'.tr,
           hintStyle: const TextStyle(
             color: app.COLOR_PRIMARY
           ),
           contentPadding: const EdgeInsets.all(15),
-          prefixIcon: const Icon(Icons.lock, color: app.COLOR_PRIMARY)
+          prefixIcon: const Icon(Icons.lock, color: app.COLOR_PRIMARY),
+          suffixIcon: IconButton(
+            icon: Icon(
+              controller.hidePassword.value 
+                ? Icons.visibility_off 
+                : Icons.visibility,
+              color: Colors.black26,
+              size: 20,
+            ),
+            onPressed: () => controller.mutateHidePassword()
+          ),
         ),
         validator: (value) {
           if (value!.isEmpty) {
@@ -126,19 +137,29 @@ class SignUpPage extends StatelessWidget {
         borderRadius: BorderRadius.circular(30)
       ),
       child: TextFormField(
-        // TODO: Show password
         maxLength: 40,
         keyboardType: TextInputType.visiblePassword,
-        controller: controller.confirmatePasswordController,
-        obscureText: true,
+        controller: controller.confirmPasswordController,
+        obscureText: controller.hideConfirmPassword.value,
         decoration: InputDecoration(
+          counterText: '',
           border: InputBorder.none,
           hintText: 'sign-up-password-conf'.tr,
           hintStyle: const TextStyle(
             color: app.COLOR_PRIMARY
           ),
           contentPadding: const EdgeInsets.all(15),
-          prefixIcon: const Icon(Icons.lock, color: app.COLOR_PRIMARY)
+          prefixIcon: const Icon(Icons.lock, color: app.COLOR_PRIMARY),
+          suffixIcon: IconButton(
+            icon: Icon(
+              controller.hideConfirmPassword.value 
+                ? Icons.visibility_off 
+                : Icons.visibility,
+              color: Colors.black26,
+              size: 20,
+            ),
+            onPressed: () => controller.mutateHideConfirmPassword()
+          ),
         ),
         validator: (value) {
           if (value!.isEmpty) {
@@ -164,6 +185,7 @@ class SignUpPage extends StatelessWidget {
         autofillHints: const [AutofillHints.name],
         keyboardType: TextInputType.name,
         decoration: InputDecoration(
+          counterText: '',
           border: InputBorder.none,
           hintText: 'sign-up-name'.tr,
           hintStyle: const TextStyle(
@@ -195,6 +217,7 @@ class SignUpPage extends StatelessWidget {
         keyboardType: TextInputType.name,
         controller: controller.surnameController,
         decoration: InputDecoration(
+          counterText: '',
           border: InputBorder.none,
           hintText: 'sign-up-surname'.tr,
           hintStyle: const TextStyle(
@@ -226,6 +249,7 @@ class SignUpPage extends StatelessWidget {
         controller: controller.emailController,
         keyboardType: TextInputType.emailAddress,
         decoration: InputDecoration(
+          counterText: '',
           border: InputBorder.none,
           hintText: 'sign-up-email'.tr,
           hintStyle: const TextStyle(
@@ -261,6 +285,7 @@ class SignUpPage extends StatelessWidget {
         controller: controller.phoneController,
         keyboardType: TextInputType.phone,
         decoration: InputDecoration(
+          counterText: '',
           border: InputBorder.none,
           hintText: 'sign-up-phone'.tr,
           hintStyle: const TextStyle(

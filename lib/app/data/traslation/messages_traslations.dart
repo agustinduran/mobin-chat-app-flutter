@@ -18,7 +18,7 @@ class MessageTranslations extends Translations {
       'title-sign-up' : 'REGISTER',
       'sign-up-email' : 'Email',
       'sign-up-password' : 'Password',
-      'sign-up-password-conf' : 'Confirmate password',
+      'sign-up-password-conf' : 'Confirm Password',
       'sign-up-username' : 'Username',
       'sign-up-name' : 'Name',
       'sign-up-surname' : 'Surname',

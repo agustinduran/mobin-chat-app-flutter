@@ -28,7 +28,7 @@ class LoginPage extends StatelessWidget {
           children: [
             _createBannerLogo(context),
             _createTextFieldEmail(),
-            _createTextFieldPassword(),
+            Obx(() =>_createTextFieldPassword()),
             _createLoginButton(),
             _createButtonDontHaveAccount(),
             Padding(padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom))
@@ -57,6 +57,7 @@ class LoginPage extends StatelessWidget {
         },
         keyboardType: TextInputType.emailAddress,
         decoration: InputDecoration(
+          counterText: '',
           border: InputBorder.none,
           hintText: 'login-email'.tr,
           hintStyle: const TextStyle(
@@ -79,7 +80,7 @@ class LoginPage extends StatelessWidget {
       child: TextFormField(
         maxLength: 40,
         controller: controller.passwordController,
-        obscureText: true,
+        obscureText: controller.hidePassword.value,
         autofillHints: const [AutofillHints.password],
         validator: (value) {
           if (value!.isEmpty) {
@@ -93,8 +94,19 @@ class LoginPage extends StatelessWidget {
           hintStyle: const TextStyle(
             color: app.COLOR_PRIMARY,
           ),
+          counterText: '',
           contentPadding: const EdgeInsets.all(15),
-          prefixIcon: const Icon(Icons.lock, color: app.COLOR_PRIMARY)
+          prefixIcon: const Icon(Icons.lock, color: app.COLOR_PRIMARY),
+          suffixIcon: IconButton(
+            icon: Icon(
+              controller.hidePassword.value 
+                ? Icons.visibility_off 
+                : Icons.visibility,
+              color: Colors.black26,
+              size: 20,
+            ),
+            onPressed: () => controller.mutateHidePassword()
+          ),
         ),
       ),
     );

@@ -6,13 +6,13 @@ class SignUpController extends GetxController {
   TextEditingController usernameController           = TextEditingController();
   TextEditingController emailController              = TextEditingController();
   TextEditingController passwordController           = TextEditingController();
-  TextEditingController confirmatePasswordController = TextEditingController();
+  TextEditingController confirmPasswordController = TextEditingController();
   TextEditingController nameController               = TextEditingController();
   TextEditingController surnameController            = TextEditingController();
   TextEditingController phoneController              = TextEditingController();
 
-  bool hidePassword = true;
-  bool hideConfirmPassword = true;
+  RxBool hidePassword = true.obs;
+  RxBool hideConfirmPassword = true.obs;
 
   final formKeySignUp = GlobalKey<FormState>();
 
@@ -29,7 +29,7 @@ class SignUpController extends GetxController {
 
     String email = emailController.text.trim();
     String password = passwordController.text.trim();
-    String confirmatePassword = confirmatePasswordController.text.trim();
+    String confirmPassword = confirmPasswordController.text.trim();
     String username = usernameController.text.trim();
     String name = nameController.text.trim();
     String surname = surnameController.text;
@@ -39,7 +39,14 @@ class SignUpController extends GetxController {
     // cargandoWidget.show();
 
     // TODO: Llamar service
+  }
 
+  void mutateHidePassword() {
+    hidePassword.value = !(hidePassword.value);
+  }
+
+  void mutateHideConfirmPassword() {
+    hideConfirmPassword.value = !(hideConfirmPassword.value);
   }
 
 }

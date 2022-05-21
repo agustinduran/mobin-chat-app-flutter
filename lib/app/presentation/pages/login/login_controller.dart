@@ -6,7 +6,7 @@ class LoginController extends GetxController {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
-  bool hidePassword = true;
+  RxBool hidePassword = true.obs;
 
   final formKeyLogin = GlobalKey<FormState>();
 
@@ -23,6 +23,10 @@ class LoginController extends GetxController {
 
     String email = emailController.text.trim();
     String password = passwordController.text.trim();
+  }
+
+  void mutateHidePassword() {
+    hidePassword.value = !(hidePassword.value);
   }
 
 }

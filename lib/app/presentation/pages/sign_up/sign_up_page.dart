@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobin_app/app/data/constants.dart' as app;
+import 'package:mobin_app/app/presentation/pages/sign_up/sign_up_controller.dart';
 
 class SignUpPage extends StatelessWidget {
-  const SignUpPage({Key? key}) : super(key: key);
+  
+  SignUpController controller = SignUpController();
 
   @override
   Widget build(BuildContext context) {
@@ -16,22 +18,25 @@ class SignUpPage extends StatelessWidget {
   Widget _crearBody(BuildContext context) {
     return SingleChildScrollView(
       reverse: true,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const SizedBox(height: 30),
-          _createBannerRegister(),
-          _createTextFieldUsername(),
-          _createTextFieldPassword(),
-          _createTextFieldPasswordConfirmation(),
-          _createTextFieldName(),
-          _createTextFieldSurname(),
-          _createTextFieldEmail(),
-          _createTextFieldPhone(),
-          _createRegisterButton(),
-          _createButtonHaveAccount(),
-          Padding(padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom))
-        ],
+      child: Form(
+        key: controller.formKeySignUp,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const SizedBox(height: 30),
+            _createBannerRegister(),
+            _createTextFieldUsername(),
+            _createTextFieldPassword(),
+            _createTextFieldPasswordConfirmation(),
+            _createTextFieldName(),
+            _createTextFieldSurname(),
+            _createTextFieldEmail(),
+            _createTextFieldPhone(),
+            _createRegisterButton(),
+            _createButtonHaveAccount(),
+            Padding(padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom))
+          ],
+        ),
       ),
     );
   }
@@ -57,7 +62,9 @@ class SignUpPage extends StatelessWidget {
         color: app.COLOR_SECONDARY,
         borderRadius: BorderRadius.circular(30)
       ),
-      child: TextField(
+      child: TextFormField(
+        autofillHints: const [AutofillHints.username],
+        controller: controller.usernameController,
         decoration: InputDecoration(
           border: InputBorder.none,
           hintText: 'sign-up-username'.tr,
@@ -65,8 +72,15 @@ class SignUpPage extends StatelessWidget {
             color: app.COLOR_PRIMARY
           ),
           contentPadding: const EdgeInsets.all(15),
-          prefixIcon: const Icon(Icons.person, color: app.COLOR_PRIMARY)
+          prefixIcon: const Icon(Icons.person, color: app.COLOR_PRIMARY),
         ),
+        // TODO: validator
+        validator: (value) {
+          if (value!.isEmpty) {
+            return 'username-required'.tr;
+          }
+          return null;
+        }
       ),
     );
   }
@@ -78,7 +92,12 @@ class SignUpPage extends StatelessWidget {
         color: app.COLOR_SECONDARY,
         borderRadius: BorderRadius.circular(30)
       ),
-      child: TextField(
+      child: TextFormField(
+        keyboardType: TextInputType.visiblePassword,
+        // TODO: validator
+        // TODO: Show password
+        controller: controller.passwordController,
+        obscureText: true,
         decoration: InputDecoration(
           border: InputBorder.none,
           hintText: 'sign-up-password'.tr,
@@ -88,6 +107,13 @@ class SignUpPage extends StatelessWidget {
           contentPadding: const EdgeInsets.all(15),
           prefixIcon: const Icon(Icons.lock, color: app.COLOR_PRIMARY)
         ),
+        validator: (value) {
+          if (value!.isEmpty) {
+            return 'password-required'.tr;
+          }
+          // TODO: Match
+          return null;
+        }
       ),
     );
   }
@@ -99,7 +125,12 @@ class SignUpPage extends StatelessWidget {
         color: app.COLOR_SECONDARY,
         borderRadius: BorderRadius.circular(30)
       ),
-      child: TextField(
+      child: TextFormField(
+        // TODO: Validator
+        // TODO: Show password
+        keyboardType: TextInputType.visiblePassword,
+        controller: controller.confirmatePasswordController,
+        obscureText: true,
         decoration: InputDecoration(
           border: InputBorder.none,
           hintText: 'sign-up-password-conf'.tr,
@@ -109,6 +140,13 @@ class SignUpPage extends StatelessWidget {
           contentPadding: const EdgeInsets.all(15),
           prefixIcon: const Icon(Icons.lock, color: app.COLOR_PRIMARY)
         ),
+        validator: (value) {
+          if (value!.isEmpty) {
+            return 'password-required'.tr;
+          }
+          return null;
+          // TODO: Match
+        }
       ),
     );
   }
@@ -120,7 +158,10 @@ class SignUpPage extends StatelessWidget {
         color: app.COLOR_SECONDARY,
         borderRadius: BorderRadius.circular(30)
       ),
-      child: TextField(
+      child: TextFormField(
+        controller: controller.nameController,
+        autofillHints: const [AutofillHints.name],
+        keyboardType: TextInputType.name,
         decoration: InputDecoration(
           border: InputBorder.none,
           hintText: 'sign-up-name'.tr,
@@ -130,6 +171,12 @@ class SignUpPage extends StatelessWidget {
           contentPadding: const EdgeInsets.all(15),
           prefixIcon: const Icon(Icons.person, color: app.COLOR_PRIMARY)
         ),
+        validator: (value) {
+          if (value!.isEmpty) {
+            return 'name-required'.tr;
+          }
+          return null;
+        }
       ),
     );
   }
@@ -141,7 +188,10 @@ class SignUpPage extends StatelessWidget {
         color: app.COLOR_SECONDARY,
         borderRadius: BorderRadius.circular(30)
       ),
-      child: TextField(
+      child: TextFormField(
+        autofillHints: const [AutofillHints.familyName],
+        keyboardType: TextInputType.name,
+        controller: controller.surnameController,
         decoration: InputDecoration(
           border: InputBorder.none,
           hintText: 'sign-up-surname'.tr,
@@ -151,6 +201,12 @@ class SignUpPage extends StatelessWidget {
           contentPadding: const EdgeInsets.all(15),
           prefixIcon: const Icon(Icons.person, color: app.COLOR_PRIMARY)
         ),
+        validator: (value) {
+          if (value!.isEmpty) {
+            return 'surname-required'.tr;
+          }
+          return null;
+        }
       ),
     );
   }
@@ -162,7 +218,10 @@ class SignUpPage extends StatelessWidget {
         color: app.COLOR_SECONDARY,
         borderRadius: BorderRadius.circular(30)
       ),
-      child: TextField(
+      child: TextFormField(
+        autofillHints: const [AutofillHints.email],
+        controller: controller.emailController,
+        keyboardType: TextInputType.emailAddress,
         decoration: InputDecoration(
           border: InputBorder.none,
           hintText: 'sign-up-email'.tr,
@@ -170,8 +229,18 @@ class SignUpPage extends StatelessWidget {
             color: app.COLOR_PRIMARY
           ),
           contentPadding: const EdgeInsets.all(15),
-          prefixIcon: const Icon(Icons.email, color: app.COLOR_PRIMARY)
+          prefixIcon: const Icon(Icons.email, color: app.COLOR_PRIMARY),
         ),
+        validator: (value) {
+          String pattern = r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
+          RegExp regex = RegExp(pattern);
+          if (value!.isEmpty)
+            return 'email-required'.tr;
+          else if (!regex.hasMatch(value))
+            return 'email-invalid'.tr;
+          else
+            return null;
+        }
       ),
     );
   }
@@ -183,7 +252,10 @@ class SignUpPage extends StatelessWidget {
         color: app.COLOR_SECONDARY,
         borderRadius: BorderRadius.circular(30)
       ),
-      child: TextField(
+      child: TextFormField(
+        autofillHints: const [AutofillHints.telephoneNumber],
+        controller: controller.phoneController,
+        keyboardType: TextInputType.phone,
         decoration: InputDecoration(
           border: InputBorder.none,
           hintText: 'sign-up-phone'.tr,
@@ -193,6 +265,16 @@ class SignUpPage extends StatelessWidget {
           contentPadding: const EdgeInsets.all(15),
           prefixIcon: const Icon(Icons.phone, color: app.COLOR_PRIMARY)
         ),
+        validator: (value) {
+          String pattern = r'^(?:\+?1[-.●]?)?\(?([0-9]{3})\)?[-.●]?([0-9]{3})[-.●]?([0-9]{4})$';
+          RegExp regex = RegExp(pattern);
+          if (value!.isEmpty)
+            return 'phone-required'.tr;
+          else if (!regex.hasMatch(value))
+            return 'phone-invalid'.tr;
+          else
+            return null;
+        },
       ),
     );
   }
@@ -202,7 +284,7 @@ class SignUpPage extends StatelessWidget {
       width: double.infinity,
       margin: const EdgeInsets.symmetric(horizontal: 50, vertical: 12),
       child: ElevatedButton(
-        onPressed: () => {},
+        onPressed: () => controller.register(),
         style: ElevatedButton.styleFrom(
           primary: app.COLOR_PRIMARY,
           shape: RoundedRectangleBorder(

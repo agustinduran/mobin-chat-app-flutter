@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobin_app/app/data/constants.dart' as app;
+import 'package:mobin_app/app/presentation/pages/login/login_controller.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({Key? key}) : super(key: key);
+
+  LoginController controller = LoginController();
 
   @override
   Widget build(BuildContext context) {
@@ -19,16 +21,19 @@ class LoginPage extends StatelessWidget {
   Widget _crearBody(BuildContext context) {
     return SingleChildScrollView(
       reverse: true,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          _createBannerLogo(context),
-          _createTextFieldEmail(),
-          _createTextFieldPassword(),
-          _createLoginButton(),
-          _createButtonDontHaveAccount(),
-          Padding(padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom))
-        ],
+      child: Form(
+        key: controller.formKeyLogin,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            _createBannerLogo(context),
+            _createTextFieldEmail(),
+            _createTextFieldPassword(),
+            _createLoginButton(),
+            _createButtonDontHaveAccount(),
+            Padding(padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom))
+          ],
+        ),
       ),
     );
   }
@@ -40,7 +45,16 @@ class LoginPage extends StatelessWidget {
         color: app.COLOR_SECONDARY,
         borderRadius: BorderRadius.circular(30)
       ),
-      child: TextField(
+      child: TextFormField(
+        controller: controller.emailController,
+        autofillHints: const [AutofillHints.email],
+        validator: (value) {
+          if (value!.isEmpty) {
+            return 'email-required'.tr;
+          }
+          return null;
+        },
+        keyboardType: TextInputType.emailAddress,
         decoration: InputDecoration(
           border: InputBorder.none,
           hintText: 'login-email'.tr,
@@ -61,7 +75,16 @@ class LoginPage extends StatelessWidget {
         color: app.COLOR_SECONDARY,
         borderRadius: BorderRadius.circular(30)
       ),
-      child: TextField(
+      child: TextFormField(
+        controller: controller.passwordController,
+        obscureText: true,
+        autofillHints: const [AutofillHints.password],
+        validator: (value) {
+          if (value!.isEmpty) {
+            return 'password-required'.tr;
+          }
+          return null;
+        },
         decoration: InputDecoration(
           border: InputBorder.none,
           hintText: 'login-password'.tr,
@@ -80,7 +103,7 @@ class LoginPage extends StatelessWidget {
       width: double.infinity,
       margin: const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
       child: ElevatedButton(
-        onPressed: () => Get.updateLocale(Locale('es', 'ES')),
+        onPressed: () => controller.login(),
         style: ElevatedButton.styleFrom(
           primary: app.COLOR_PRIMARY,
           shape: RoundedRectangleBorder(

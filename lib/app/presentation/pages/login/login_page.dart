@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mobin_app/app/data/constants.dart' as app;
+import 'package:mobin_app/app/data/environment.dart';
 import 'package:mobin_app/app/presentation/pages/login/login_controller.dart';
 
 class LoginPage extends StatelessWidget {
@@ -14,7 +14,7 @@ class LoginPage extends StatelessWidget {
       body: Center(
         child: _crearBody(context),
       ),
-      backgroundColor: app.COLOR_BLACK2,
+      backgroundColor: Environment.COLOR_BLACK2,
     );
   }
   
@@ -42,7 +42,7 @@ class LoginPage extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 50),
       decoration: BoxDecoration(
-        color: app.COLOR_SECONDARY,
+        color: Environment.COLOR_SECONDARY,
         borderRadius: BorderRadius.circular(30)
       ),
       child: TextFormField(
@@ -61,10 +61,10 @@ class LoginPage extends StatelessWidget {
           border: InputBorder.none,
           hintText: 'login-email'.tr,
           hintStyle: const TextStyle(
-            color: app.COLOR_PRIMARY
+            color: Environment.COLOR_PRIMARY
           ),
           contentPadding: const EdgeInsets.all(15),
-          prefixIcon: const Icon(Icons.email, color: app.COLOR_PRIMARY)
+          prefixIcon: const Icon(Icons.email, color: Environment.COLOR_PRIMARY)
         ),
       ),
     );
@@ -74,7 +74,7 @@ class LoginPage extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
       decoration: BoxDecoration(
-        color: app.COLOR_SECONDARY,
+        color: Environment.COLOR_SECONDARY,
         borderRadius: BorderRadius.circular(30)
       ),
       child: TextFormField(
@@ -92,11 +92,11 @@ class LoginPage extends StatelessWidget {
           border: InputBorder.none,
           hintText: 'login-password'.tr,
           hintStyle: const TextStyle(
-            color: app.COLOR_PRIMARY,
+            color: Environment.COLOR_PRIMARY,
           ),
           counterText: '',
           contentPadding: const EdgeInsets.all(15),
-          prefixIcon: const Icon(Icons.lock, color: app.COLOR_PRIMARY),
+          prefixIcon: const Icon(Icons.lock, color: Environment.COLOR_PRIMARY),
           suffixIcon: IconButton(
             icon: Icon(
               controller.hidePassword.value 
@@ -119,7 +119,7 @@ class LoginPage extends StatelessWidget {
       child: ElevatedButton(
         onPressed: () => controller.login(),
         style: ElevatedButton.styleFrom(
-          primary: app.COLOR_PRIMARY,
+          primary: Environment.COLOR_PRIMARY,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30)
           ),
@@ -134,9 +134,9 @@ class LoginPage extends StatelessWidget {
     return Row (
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text('login-no-account'.tr, style: const TextStyle(color: app.COLOR_PRIMARY)),
+        Text('login-no-account'.tr, style: const TextStyle(color: Environment.COLOR_PRIMARY)),
         FlatButton(
-          onPressed: () => Get.toNamed(app.PATH_SIGN_UP_PAGE),
+          onPressed: () => Get.toNamed(Environment.PATH_SIGN_UP_PAGE),
           child: Text(
             'login-register-button'.tr,
             style: const TextStyle(
@@ -161,7 +161,7 @@ class LoginPage extends StatelessWidget {
             child: const Icon(
               Icons.mark_chat_unread,
               size: 100,
-              color: app.COLOR_PRIMARY,
+              color: Environment.COLOR_PRIMARY,
             ),
           ),
           Container(
@@ -171,7 +171,7 @@ class LoginPage extends StatelessWidget {
               style: const TextStyle(
                 fontSize: 30,
                 fontWeight: FontWeight.bold,
-                color: app.COLOR_PRIMARY
+                color: Environment.COLOR_PRIMARY
               )
             ),
           ),
@@ -182,7 +182,7 @@ class LoginPage extends StatelessWidget {
               style: const TextStyle(
                 fontSize: 11,
                 fontWeight: FontWeight.bold,
-                color: app.COLOR_PRIMARY
+                color: Environment.COLOR_PRIMARY
               )
             ),
           )

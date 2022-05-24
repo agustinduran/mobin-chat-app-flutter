@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mobin_app/app/data/constants.dart' as app;
+import 'package:mobin_app/app/data/environment.dart';
 import 'package:mobin_app/app/data/traslation/messages_traslations.dart';
 import 'package:mobin_app/app/presentation/pages/login/login_page.dart';
 import 'package:mobin_app/app/presentation/pages/sign_up/sign_up_page.dart';
@@ -19,14 +19,14 @@ class MyApp extends StatelessWidget {
       title: 'title-app'.tr,
       translations: MessageTranslations(),
       locale: Get.deviceLocale,
-      initialRoute: app.PATH_LOGIN_PAGE,
+      initialRoute: Environment.PATH_LOGIN_PAGE,
       getPages: [
         GetPage(
-          name: app.PATH_LOGIN_PAGE,
+          name: Environment.PATH_LOGIN_PAGE,
           page: () => LoginPage()
         ),
         GetPage(
-          name: app.PATH_SIGN_UP_PAGE,
+          name: Environment.PATH_SIGN_UP_PAGE,
           page: () => SignUpPage()
         ),
       ],

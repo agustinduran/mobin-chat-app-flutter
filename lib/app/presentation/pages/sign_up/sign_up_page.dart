@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mobin_app/app/data/constants.dart' as app;
+import 'package:mobin_app/app/data/environment.dart';
 import 'package:mobin_app/app/presentation/pages/sign_up/sign_up_controller.dart';
 
 class SignUpPage extends StatelessWidget {
@@ -11,7 +11,7 @@ class SignUpPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _crearBody(context),
-      backgroundColor: app.COLOR_BLACK1
+      backgroundColor: Environment.COLOR_BLACK1
     );
   }
   
@@ -49,7 +49,7 @@ class SignUpPage extends StatelessWidget {
         style: const TextStyle(
           fontSize: 30,
           fontWeight: FontWeight.bold,
-          color: app.COLOR_PRIMARY
+          color: Environment.COLOR_PRIMARY
         ),
       ),
     );
@@ -59,7 +59,7 @@ class SignUpPage extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 50, vertical: 7),
       decoration: BoxDecoration(
-        color: app.COLOR_SECONDARY,
+        color: Environment.COLOR_SECONDARY,
         borderRadius: BorderRadius.circular(30)
       ),
       child: TextFormField(
@@ -71,10 +71,10 @@ class SignUpPage extends StatelessWidget {
           border: InputBorder.none,
           hintText: 'sign-up-username'.tr,
           hintStyle: const TextStyle(
-            color: app.COLOR_PRIMARY
+            color: Environment.COLOR_PRIMARY
           ),
           contentPadding: const EdgeInsets.all(15),
-          prefixIcon: const Icon(Icons.person, color: app.COLOR_PRIMARY),
+          prefixIcon: const Icon(Icons.person, color: Environment.COLOR_PRIMARY),
         ),
         validator: (value) {
           if (value!.isEmpty) {
@@ -90,7 +90,7 @@ class SignUpPage extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 50, vertical: 7),
       decoration: BoxDecoration(
-        color: app.COLOR_SECONDARY,
+        color: Environment.COLOR_SECONDARY,
         borderRadius: BorderRadius.circular(30)
       ),
       child: TextFormField(
@@ -103,10 +103,10 @@ class SignUpPage extends StatelessWidget {
           border: InputBorder.none,
           hintText: 'sign-up-password'.tr,
           hintStyle: const TextStyle(
-            color: app.COLOR_PRIMARY
+            color: Environment.COLOR_PRIMARY
           ),
           contentPadding: const EdgeInsets.all(15),
-          prefixIcon: const Icon(Icons.lock, color: app.COLOR_PRIMARY),
+          prefixIcon: const Icon(Icons.lock, color: Environment.COLOR_PRIMARY),
           suffixIcon: IconButton(
             icon: Icon(
               controller.hidePassword.value 
@@ -133,7 +133,7 @@ class SignUpPage extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 50, vertical: 7),
       decoration: BoxDecoration(
-        color: app.COLOR_SECONDARY,
+        color: Environment.COLOR_SECONDARY,
         borderRadius: BorderRadius.circular(30)
       ),
       child: TextFormField(
@@ -146,10 +146,10 @@ class SignUpPage extends StatelessWidget {
           border: InputBorder.none,
           hintText: 'sign-up-password-conf'.tr,
           hintStyle: const TextStyle(
-            color: app.COLOR_PRIMARY
+            color: Environment.COLOR_PRIMARY
           ),
           contentPadding: const EdgeInsets.all(15),
-          prefixIcon: const Icon(Icons.lock, color: app.COLOR_PRIMARY),
+          prefixIcon: const Icon(Icons.lock, color: Environment.COLOR_PRIMARY),
           suffixIcon: IconButton(
             icon: Icon(
               controller.hideConfirmPassword.value 
@@ -177,7 +177,7 @@ class SignUpPage extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 50, vertical: 7),
       decoration: BoxDecoration(
-        color: app.COLOR_SECONDARY,
+        color: Environment.COLOR_SECONDARY,
         borderRadius: BorderRadius.circular(30)
       ),
       child: TextFormField(
@@ -190,10 +190,10 @@ class SignUpPage extends StatelessWidget {
           border: InputBorder.none,
           hintText: 'sign-up-name'.tr,
           hintStyle: const TextStyle(
-            color: app.COLOR_PRIMARY
+            color: Environment.COLOR_PRIMARY
           ),
           contentPadding: const EdgeInsets.all(15),
-          prefixIcon: const Icon(Icons.person, color: app.COLOR_PRIMARY)
+          prefixIcon: const Icon(Icons.person, color: Environment.COLOR_PRIMARY)
         ),
         validator: (value) {
           if (value!.isEmpty) {
@@ -209,7 +209,7 @@ class SignUpPage extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 50, vertical: 7),
       decoration: BoxDecoration(
-        color: app.COLOR_SECONDARY,
+        color: Environment.COLOR_SECONDARY,
         borderRadius: BorderRadius.circular(30)
       ),
       child: TextFormField(
@@ -222,10 +222,10 @@ class SignUpPage extends StatelessWidget {
           border: InputBorder.none,
           hintText: 'sign-up-surname'.tr,
           hintStyle: const TextStyle(
-            color: app.COLOR_PRIMARY
+            color: Environment.COLOR_PRIMARY
           ),
           contentPadding: const EdgeInsets.all(15),
-          prefixIcon: const Icon(Icons.person, color: app.COLOR_PRIMARY)
+          prefixIcon: const Icon(Icons.person, color: Environment.COLOR_PRIMARY)
         ),
         validator: (value) {
           if (value!.isEmpty) {
@@ -241,7 +241,7 @@ class SignUpPage extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 50, vertical: 7),
       decoration: BoxDecoration(
-        color: app.COLOR_SECONDARY,
+        color: Environment.COLOR_SECONDARY,
         borderRadius: BorderRadius.circular(30)
       ),
       child: TextFormField(
@@ -254,10 +254,10 @@ class SignUpPage extends StatelessWidget {
           border: InputBorder.none,
           hintText: 'sign-up-email'.tr,
           hintStyle: const TextStyle(
-            color: app.COLOR_PRIMARY
+            color: Environment.COLOR_PRIMARY
           ),
           contentPadding: const EdgeInsets.all(15),
-          prefixIcon: const Icon(Icons.email, color: app.COLOR_PRIMARY),
+          prefixIcon: const Icon(Icons.email, color: Environment.COLOR_PRIMARY),
         ),
         validator: (value) {
           String pattern = r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
@@ -277,7 +277,7 @@ class SignUpPage extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 50, vertical: 7),
       decoration: BoxDecoration(
-        color: app.COLOR_SECONDARY,
+        color: Environment.COLOR_SECONDARY,
         borderRadius: BorderRadius.circular(30)
       ),
       child: TextFormField(
@@ -290,10 +290,10 @@ class SignUpPage extends StatelessWidget {
           border: InputBorder.none,
           hintText: 'sign-up-phone'.tr,
           hintStyle: const TextStyle(
-            color: app.COLOR_PRIMARY
+            color: Environment.COLOR_PRIMARY
           ),
           contentPadding: const EdgeInsets.all(15),
-          prefixIcon: const Icon(Icons.phone, color: app.COLOR_PRIMARY)
+          prefixIcon: const Icon(Icons.phone, color: Environment.COLOR_PRIMARY)
         ),
         validator: (value) {
           String pattern = r'^(?:\+?1[-.●]?)?\(?([0-9]{3})\)?[-.●]?([0-9]{3})[-.●]?([0-9]{4})$';
@@ -316,7 +316,7 @@ class SignUpPage extends StatelessWidget {
       child: ElevatedButton(
         onPressed: () => controller.register(),
         style: ElevatedButton.styleFrom(
-          primary: app.COLOR_PRIMARY,
+          primary: Environment.COLOR_PRIMARY,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30)
           ),
@@ -331,7 +331,7 @@ class SignUpPage extends StatelessWidget {
     return Row (
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text('sign-up-account'.tr, style: const TextStyle(color: app.COLOR_PRIMARY)),
+        Text('sign-up-account'.tr, style: const TextStyle(color: Environment.COLOR_PRIMARY)),
         FlatButton(
           onPressed: () => Get.back(),
           child: Text(

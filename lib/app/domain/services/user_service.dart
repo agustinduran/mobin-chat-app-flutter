@@ -17,8 +17,6 @@ class UserService extends GetConnect {
       }
     );
 
-    print(_urlSignUp);
-
     return response;
   }
   

@@ -36,6 +36,8 @@ class User {
         this.name,
         this.surname,
         this.phone,
+        this.password,
+        this.passwordConfirmation,
         this.roles,
         this.active,
         this.createdAt,
@@ -48,6 +50,8 @@ class User {
     String? name;
     String? surname;
     String? phone;
+    String? password;
+    String? passwordConfirmation;
     String? roles;
     int? active;
     DateTime? createdAt;
@@ -71,11 +75,9 @@ class User {
         "username": username,
         "email": email,
         "name": name,
+        "password": password,
+        "password-confirmation": passwordConfirmation,
         "surname": surname,
         "phone": phone,
-        "roles": roles,
-        "active": active,
-        "createdAt": createdAt?.toIso8601String(),
-        "updatedAt": updatedAt?.toIso8601String(),
     };
 }

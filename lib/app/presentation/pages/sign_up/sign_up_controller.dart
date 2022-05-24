@@ -60,6 +60,8 @@ class SignUpController extends GetxController {
 
     print(response.status.code);
     print(response.body);
+
+    clearForm();
   }
 
   void mutateHidePassword() {
@@ -68,6 +70,16 @@ class SignUpController extends GetxController {
 
   void mutateHideConfirmPassword() {
     hideConfirmPassword.value = !(hideConfirmPassword.value);
+  }
+  
+  void clearForm() {
+    usernameController.text        = '';
+    emailController.text           = '';
+    passwordController.text        = '';
+    confirmPasswordController.text = '';
+    nameController.text            = '';
+    surnameController.text         = '';
+    phoneController.text           = '';
   }
 
 }

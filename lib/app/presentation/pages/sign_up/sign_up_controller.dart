@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:mobin_app/app/domain/entities/user.dart';
+import 'package:mobin_app/app/domain/services/user_service.dart';
 
 class SignUpController extends GetxController {
 
@@ -11,6 +13,8 @@ class SignUpController extends GetxController {
   TextEditingController surnameController            = TextEditingController();
   TextEditingController phoneController              = TextEditingController();
 
+  UserService service = UserService();
+
   RxBool hidePassword = true.obs;
   RxBool hideConfirmPassword = true.obs;
 
@@ -18,7 +22,7 @@ class SignUpController extends GetxController {
 
   final formKeySignUp = GlobalKey<FormState>();
 
-  void register(/*BuildContext context*/) {
+  void register(/*BuildContext context*/) async {
     // Hide keyboard
     // FocusScope.of(context).unfocus();
 
@@ -40,7 +44,22 @@ class SignUpController extends GetxController {
     // final ProgressDialog cargandoWidget = new ProgressDialog(Get.context);
     // cargandoWidget.show();
 
-    // TODO: Llamar service
+    User user = User(
+      email: email,
+      password: password,
+      passwordConfirmation: confirmPassword,
+      username: username,
+      name: name,
+      surname: surname,
+      phone: phone
+    );
+
+    Response response = await service.signUp(user);
+
+    // TODO: Tratar errores
+
+    print(response.status.code);
+    print(response.body);
   }
 
   void mutateHidePassword() {

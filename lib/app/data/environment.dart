@@ -9,10 +9,19 @@ class Environment {
   static const COLOR_BLACK2    = Color(0xFF272f51);
   static const COLOR_GREY      = Color(0xFF384373);
 
-  static const HOST_DEV  = 'http://localhost:3000';
-  static const HOST_PROD = 'http://localhost:3000';
-
+  // Routes
   static const PATH_LOGIN_PAGE    = '/login';
   static const PATH_SIGN_UP_PAGE = '/sign-up';
+
+  // Api - Backend
+  static const HOST_DEV  = 'http://192.168.1.23:3000';
+  static const HOST_PROD = 'http://192.168.1.23:3000';
+
+  static const HOST = HOST_DEV;
+
+  static const ENDPOINT_LOGIN   = '/api/auth/login/';
+  static const ENDPOINT_SIGN_UP = '/api/auth/register/';
+
+  static const ENDPOINT_USERS   = '/api/user/';
 
 }

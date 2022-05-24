@@ -61,6 +61,7 @@ class SignUpController extends GetxController {
     print(response.status.code);
     print(response.body);
 
+    // TODO: if success
     clearForm();
   }
 

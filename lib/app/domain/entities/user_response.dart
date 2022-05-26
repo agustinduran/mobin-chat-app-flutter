@@ -9,22 +9,26 @@ class UserResponse {
         this.success,
         this.user,
         this.from,
+        this.message
     });
 
     bool? success;
     User? user;
     String? from;
+    String? message;
 
     factory UserResponse.fromJson(Map<String, dynamic> json) => UserResponse(
         success: json["success"],
-        user: User.fromJson(json["user"]),
+        user: json["user"] != null ? User.fromJson(json["user"]) : null,
         from: json["from"],
+        message: json["message"]
     );
 
     Map<String, dynamic> toJson() => {
         "success": success,
         "user": user?.toJson(),
         "from": from,
+        "message": message,
     };
 }
 

@@ -11,7 +11,8 @@ class Environment {
 
   // Routes
   static const PATH_LOGIN_PAGE    = '/login';
-  static const PATH_SIGN_UP_PAGE = '/sign-up';
+  static const PATH_SIGN_UP_PAGE  = '/sign-up';
+  static const PATH_HOME          = '/app/home';
 
   // Api - Backend
   static const HOST_DEV  = 'http://192.168.1.23:3000';
@@ -21,6 +22,7 @@ class Environment {
 
   static const ENDPOINT_LOGIN   = '/api/auth/login/';
   static const ENDPOINT_SIGN_UP = '/api/auth/register/';
+  
 
   static const ENDPOINT_USERS   = '/api/user/';
 

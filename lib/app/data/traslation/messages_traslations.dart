@@ -14,6 +14,8 @@ class MessageTranslations extends Translations {
       'login-no-account' : 'Don\'t have an account?',
       'login-register-button' : 'Register',
       'login-button' : 'Login',
+      'login-error' : 'Ups',
+      'login-error-message' : 'Invalid credentials',
       // SIGN-UP PAGE
       'title-sign-up' : 'REGISTER',
       'sign-up-email' : 'Email',
@@ -48,6 +50,8 @@ class MessageTranslations extends Translations {
       'login-no-account' : '¿No tenés cuenta?',
       'login-register-button' : 'Registrate',
       'login-button' : 'INGRESAR',
+      'login-error' : 'Ups ¡Ha ocurrido un error!',
+      'login-error-message' : 'Credenciales inválidas',
       // SIGN-UP PAGE
       'title-sign-up' : 'REGISTRO',
       'sign-up-email' : 'Correo electrónico',

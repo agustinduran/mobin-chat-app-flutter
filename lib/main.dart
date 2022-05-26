@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobin_app/app/data/environment.dart';
 import 'package:mobin_app/app/data/traslation/messages_traslations.dart';
+import 'package:mobin_app/app/presentation/pages/home/home_page.dart';
 import 'package:mobin_app/app/presentation/pages/login/login_page.dart';
 import 'package:mobin_app/app/presentation/pages/sign_up/sign_up_page.dart';
 
@@ -28,6 +29,10 @@ class MyApp extends StatelessWidget {
         GetPage(
           name: Environment.PATH_SIGN_UP_PAGE,
           page: () => SignUpPage()
+        ),
+        GetPage(
+          name: Environment.PATH_HOME,
+          page: () => HomePage()
         ),
       ],
       navigatorKey: Get.key,

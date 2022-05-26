@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobin_app/app/data/environment.dart';
+import 'package:mobin_app/app/domain/entities/login_response.dart';
 import 'package:mobin_app/app/presentation/pages/login/login_controller.dart';
 
 class LoginPage extends StatelessWidget {
@@ -117,7 +118,26 @@ class LoginPage extends StatelessWidget {
       width: double.infinity,
       margin: const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
       child: ElevatedButton(
-        onPressed: () => controller.login(),
+        onPressed: () async {
+          // Hide keyboard
+          // FocusScope.of(context).unfocus();
+
+          // Execute validators
+          if (!controller.formKeyLogin.currentState!.validate())
+            return null;
+
+          LoginResponse resp = await controller.login();
+          if (resp.success!) {
+            Get.offAllNamed(Environment.PATH_HOME);
+          } else {
+            Get.snackbar(
+              'login-error'.tr,
+              'login-error-message'.tr,
+              duration: const Duration(seconds: 3),
+              backgroundColor: Colors.red,
+            );
+          }
+        },
         style: ElevatedButton.styleFrom(
           primary: Environment.COLOR_PRIMARY,
           shape: RoundedRectangleBorder(

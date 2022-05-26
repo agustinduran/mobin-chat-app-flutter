@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:mobin_app/app/domain/entities/user.dart';
+import 'package:mobin_app/app/domain/entities/user_response.dart';
 import 'package:mobin_app/app/domain/services/user_service.dart';
 
 class SignUpController extends GetxController {
@@ -41,6 +41,7 @@ class SignUpController extends GetxController {
     String surname = surnameController.text;
     String phone = phoneController.text.trim();
 
+    // TODO: Mostrar rulito
     // final ProgressDialog cargandoWidget = new ProgressDialog(Get.context);
     // cargandoWidget.show();
 
@@ -63,6 +64,8 @@ class SignUpController extends GetxController {
 
     // TODO: if success
     clearForm();
+
+    // TODO: Loggear y mandar directo al home
   }
 
   void mutateHidePassword() {

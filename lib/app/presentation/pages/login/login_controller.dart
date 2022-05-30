@@ -1,16 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:mobin_app/app/domain/entities/login_response.dart';
 import 'package:mobin_app/app/domain/services/user_service.dart';
 
 class LoginController extends GetxController {
 
+  RxBool hidePassword = true.obs;
+
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
-  RxBool hidePassword = true.obs;
-
   UserService service = UserService();
+
+  GetStorage storage = GetStorage();
 
   final formKeyLogin = GlobalKey<FormState>();
 
@@ -23,9 +26,12 @@ class LoginController extends GetxController {
 
     Response response = await service.login(email, password);
 
-    // TODO: Guardar token en preferencias
+    LoginResponse resp = LoginResponse.fromJson(response.body);
 
-    return LoginResponse.fromJson(response.body);
+    // TODO: GUARDAR? storage.write('USER_ID', resp.user_id);
+    storage.write('ACCESS_TOKEN', resp.token);
+    
+    return resp;
   }
 
   void mutateHidePassword() {

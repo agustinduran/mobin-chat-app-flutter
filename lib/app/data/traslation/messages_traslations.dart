@@ -39,6 +39,10 @@ class MessageTranslations extends Translations {
       'email-invalid' : 'Email is invalid',
       'phone-required' : 'Phone is required',
       'phone-invalid' : 'Phone is invalid',
+      // HOME
+      'chats-label': 'Chats',
+      'contacts-label' : 'Contacts',
+      'profile-label' : 'Profile',
     },
     'es_ES' : {
       'title-app' : 'Test title spanish',
@@ -75,6 +79,10 @@ class MessageTranslations extends Translations {
       'email-invalid' : 'Email inválido',
       'phone-required' : 'Teléfono es requerido',
       'phone-invalid' : 'Teléfono inválido',
+      // HOME
+      'chats-label': 'Chats',
+      'contacts-label' : 'Contactos',
+      'profile-label' : 'Perfil',
     },
   };
 

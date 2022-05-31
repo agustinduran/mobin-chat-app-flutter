@@ -65,6 +65,7 @@ class SignUpController extends GetxController {
       Get.offNamed('/login');
       // TODO: Loggear y mandar directo al home
     } else {
+      // TODO: Mejorar error
       Get.snackbar('Error', 'Error al registrarse',
         snackPosition: SnackPosition.BOTTOM,
         backgroundColor: Colors.red,

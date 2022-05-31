@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobin_app/app/data/models/user.dart';
 import 'package:mobin_app/app/domain/entities/user_response.dart';
@@ -58,15 +59,24 @@ class SignUpController extends GetxController {
 
     Response response = await service.signUp(user);
 
-    // TODO: Tratar errores
+    if (response.statusCode == 201) {
+      UserResponse userResponse = UserResponse.fromJson(response.body);
+      clearForm();
+      Get.offNamed('/login');
+      // TODO: Loggear y mandar directo al home
+    } else {
+      Get.snackbar('Error', 'Error al registrarse',
+        snackPosition: SnackPosition.BOTTOM,
+        backgroundColor: Colors.red,
+        borderRadius: 10,
+        margin: EdgeInsets.all(10),
+        borderColor: Colors.red,
+        colorText: Colors.white,
+        duration: Duration(seconds: 3),
+        icon: Icon(Icons.error, color: Colors.white)
+      );
+    }
 
-    print(response.status.code);
-    print(response.body);
-
-    // TODO: if success
-    clearForm();
-
-    // TODO: Loggear y mandar directo al home
   }
 
   void mutateHidePassword() {

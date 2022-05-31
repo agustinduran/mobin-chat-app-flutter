@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mobin_app/app/presentation/pages/home/home_controller.dart';
 
 class HomePage extends StatelessWidget {
@@ -14,18 +15,18 @@ class HomePage extends StatelessWidget {
   
   Widget _createBottomNavigationBar(BuildContext context) {
     return BottomNavigationBar(
-      items: const [
+      items: [
         BottomNavigationBarItem(
           icon: Icon(Icons.home),
-          label: 'home-label',
+          label: 'chats-label'.tr,
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.search),
-          label: 'chats-label',
+          label: 'contacts-label'.tr,
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.person),
-          label: 'profile-label',
+          label: 'profile-label'.tr,
         ),
       ],
       currentIndex: 0,

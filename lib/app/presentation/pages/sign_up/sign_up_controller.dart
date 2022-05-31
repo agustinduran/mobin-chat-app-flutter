@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:mobin_app/app/data/models/user.dart';
 import 'package:mobin_app/app/domain/entities/user_response.dart';
 import 'package:mobin_app/app/domain/services/user_service.dart';
 

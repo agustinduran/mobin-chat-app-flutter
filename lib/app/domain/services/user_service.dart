@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 import 'package:mobin_app/app/data/environment.dart';
-import 'package:mobin_app/app/domain/entities/user_response.dart';
+import 'package:mobin_app/app/data/models/user.dart';
 
 class UserService extends GetConnect {
 
@@ -32,9 +32,22 @@ class UserService extends GetConnect {
       }
     );
 
-    print(response.body);
-
     return response;
   }
+
+  // Future<Response> getUser(String email, String password) async {
+  //   Response response = await post(
+  //     _urlLogin,
+  //     {
+  //       'username': email,
+  //       'password': password
+  //     },
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     }
+  //   );
+
+  //   return response;
+  // }
   
 }

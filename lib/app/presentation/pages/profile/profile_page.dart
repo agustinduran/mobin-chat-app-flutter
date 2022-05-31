@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:mobin_app/app/presentation/pages/profile/profile_controller.dart';
 
 class ProfilePage extends StatelessWidget {
-  const ProfilePage({Key? key}) : super(key: key);
+  
+  ProfileController controller = Get.put(ProfileController());
 
   @override
   Widget build(BuildContext context) {

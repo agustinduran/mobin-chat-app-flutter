@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:mobin_app/app/presentation/pages/contacts/contacts_controller.dart';
 
 class ContactsPage extends StatelessWidget {
-  const ContactsPage({Key? key}) : super(key: key);
+  
+  ContactsController controller = Get.put(ContactsController());
 
   @override
   Widget build(BuildContext context) {

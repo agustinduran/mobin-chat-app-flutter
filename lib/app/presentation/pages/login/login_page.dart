@@ -6,7 +6,7 @@ import 'package:mobin_app/app/presentation/pages/login/login_controller.dart';
 
 class LoginPage extends StatelessWidget {
 
-  LoginController controller = LoginController();
+  LoginController controller = Get.put(LoginController());
 
   @override
   Widget build(BuildContext context) {

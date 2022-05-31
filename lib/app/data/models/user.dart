@@ -36,8 +36,8 @@ class User {
         phone: json["phone"],
         roles: json["roles"],
         active: json["active"],
-        createdAt: DateTime.parse(json["createdAt"]),
-        updatedAt: DateTime.parse(json["updatedAt"]),
+        createdAt: json["createdAt"] != null ? DateTime.parse(json["createdAt"]) : null,
+        updatedAt: json["updatedAt"] != null ? DateTime.parse(json["updatedAt"]) : null,
     );
 
     Map<String, dynamic> toJson() => {

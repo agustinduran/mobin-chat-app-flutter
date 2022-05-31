@@ -28,8 +28,8 @@ class LoginController extends GetxController {
 
     LoginResponse resp = LoginResponse.fromJson(response.body);
 
-    // TODO: GUARDAR? storage.write('USER_ID', resp.user_id);
     storage.write('ACCESS_TOKEN', resp.token);
+    storage.write('USER_CONNECTED', resp.user);
     
     return resp;
   }

@@ -6,6 +6,7 @@ class User {
         this.name,
         this.surname,
         this.phone,
+        this.image,
         this.password,
         this.passwordConfirmation,
         this.roles,
@@ -20,6 +21,7 @@ class User {
     String? name;
     String? surname;
     String? phone;
+    String? image;
     String? password;
     String? passwordConfirmation;
     String? roles;
@@ -28,26 +30,28 @@ class User {
     DateTime? updatedAt;
 
     factory User.fromJson(Map<String, dynamic> json) => User(
-        id: json["id"],
-        username: json["username"],
-        email: json["email"],
-        name: json["name"],
-        surname: json["surname"],
-        phone: json["phone"],
-        roles: json["roles"],
-        active: json["active"],
-        createdAt: json["createdAt"] != null ? DateTime.parse(json["createdAt"]) : null,
-        updatedAt: json["updatedAt"] != null ? DateTime.parse(json["updatedAt"]) : null,
+        id       : json["id"],
+        username : json["username"],
+        email    : json["email"],
+        name     : json["name"],
+        surname  : json["surname"],
+        phone    : json["phone"],
+        image    : json["image"],
+        roles    : json["roles"],
+        active   : json["active"],
+        createdAt: json["createdAt"] != null ? DateTime.parse(json["createdAt"]): null,
+        updatedAt: json["updatedAt"] != null ? DateTime.parse(json["updatedAt"]): null,
     );
 
     Map<String, dynamic> toJson() => {
-        "id": id,
-        "username": username,
-        "email": email,
-        "name": name,
-        "password": password,
+        "id"                   : id,
+        "username"             : username,
+        "email"                : email,
+        "name"                 : name,
+        "image"                : image,
+        "password"             : password,
         "password-confirmation": passwordConfirmation,
-        "surname": surname,
-        "phone": phone,
+        "surname"              : surname,
+        "phone"                : phone,
     };
 }

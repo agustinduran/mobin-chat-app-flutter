@@ -43,6 +43,88 @@ class MessageTranslations extends Translations {
       'chats-label': 'Chats',
       'contacts-label' : 'Contacts',
       'profile-label' : 'Profile',
+      // PROFILE
+      'profile-name' : 'Name',
+      'profile-email' : 'Email',
+      'profile-phone' : 'Phone',
+
+
+
+
+
+
+
+
+
+
+      'profile-edit-button' : 'Edit',
+      'profile-save-button' : 'Save',
+      'profile-cancel-button' : 'Cancel',
+      'profile-delete-button' : 'Delete',
+      'profile-delete-confirmation' : 'Are you sure you want to delete your account?',
+      'profile-delete-cancel-button' : 'Cancel',
+      'profile-delete-confirm-button' : 'Confirm',
+      'profile-delete-error' : 'Ups',
+      'profile-delete-error-message' : 'Something went wrong',
+      'profile-delete-success-message' : 'Account deleted successfully',
+      'profile-delete-success-button' : 'Ok',
+
+
+
+      // CHAT
+      'chat-title' : 'Chat',
+      'chat-send-button' : 'Send',
+      'chat-message-placeholder' : 'Type a message',
+      'chat-message-error' : 'Ups',
+      'chat-message-error-message' : 'Something went wrong',
+      'chat-message-success-message' : 'Message sent successfully',
+      'chat-message-success-button' : 'Ok',
+      // CONTACTS
+      'contacts-title' : 'Contacts',
+      'contacts-add-button' : 'Add',
+      'contacts-add-title' : 'Add contact',
+      'contacts-add-name' : 'Name',
+      'contacts-add-surname' : 'Surname',
+      'contacts-add-username' : 'Username',
+      'contacts-add-email' : 'Email',
+      'contacts-add-phone' : 'Phone',
+      'contacts-add-button' : 'Add',
+      'contacts-add-error' : 'Ups',
+      'contacts-add-error-message' : 'Something went wrong',
+      'contacts-add-success-message' : 'Contact added successfully',
+      'contacts-add-success-button' : 'Ok',
+      'contacts-add-error-username-message' : 'Username already exists',
+      'contacts-add-error-email-message' : 'Email already exists',
+      'contacts-add-error-phone-message' : 'Phone already exists',
+      'contacts-add-error-username-button' : 'Ok',
+      'contacts-add-error-email-button' : 'Ok',
+      'contacts-add-error-phone-button' : 'Ok',
+      'contacts-edit-button' : 'Edit',
+      'contacts-edit-title' : 'Edit contact',
+      'contacts-edit-name' : 'Name',
+      'contacts-edit-surname' : 'Surname',
+      'contacts-edit-username' : 'Username',
+      'contacts-edit-email' : 'Email',
+      'contacts-edit-phone' : 'Phone',
+      'contacts-edit-button' : 'Edit',
+      'contacts-edit-error' : 'Ups',
+      'contacts-edit-error-message' : 'Something went wrong',
+      'contacts-edit-success-message' : 'Contact edited successfully',
+      'contacts-edit-success-button' : 'Ok',
+      'contacts-edit-error-username-message' : 'Username already exists',
+      'contacts-edit-error-email-message' : 'Email already exists',
+      'contacts-edit-error-phone-message' : 'Phone already exists',
+      'contacts-edit-error-username-button' : 'Ok',
+      'contacts-edit-error-email-button' : 'Ok',
+      'contacts-edit-error-phone-button' : 'Ok',
+      'contacts-delete-button' : 'Delete',
+      'contacts-delete-confirmation' : 'Are you sure you want to delete this contact?',
+      'contacts-delete-cancel-button' : 'Cancel',
+      'contacts-delete-confirm-button' : 'Confirm',
+      'contacts-delete-error' : 'Ups',
+      'contacts-delete-error-message' : 'Something went wrong',
+      'contacts-delete-success-message' : 'Contact deleted successfully',
+      'contacts-delete-success-button' : 'Ok',
     },
     'es_ES' : {
       'title-app' : 'Test title spanish',
@@ -83,6 +165,10 @@ class MessageTranslations extends Translations {
       'chats-label': 'Chats',
       'contacts-label' : 'Contactos',
       'profile-label' : 'Perfil',
+      // PROFILE
+      'profile-name' : 'Nombre',
+      'profile-email' : 'Correo electrónico',
+      'profile-phone' : 'Teléfono',
     },
   };
 

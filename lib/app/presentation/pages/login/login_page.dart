@@ -128,7 +128,7 @@ class LoginPage extends StatelessWidget {
 
           LoginResponse resp = await controller.login();
           if (resp.success) {
-            Get.offAllNamed(Environment.PATH_HOME);
+            Get.offAllNamed(Environment.PATH_HOME_PAGE);
           } else {
             Get.snackbar(
               'login-error'.tr,

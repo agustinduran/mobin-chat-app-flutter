@@ -12,7 +12,7 @@ class Environment {
   // Routes
   static const PATH_LOGIN_PAGE    = '/login';
   static const PATH_SIGN_UP_PAGE  = '/sign-up';
-  static const PATH_HOME          = '/app/home';
+  static const PATH_HOME_PAGE          = '/app/home';
 
   // Api - Backend
   static const HOST_DEV  = 'http://192.168.1.23:3000';

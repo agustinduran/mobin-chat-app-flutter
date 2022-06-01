@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
       title: 'title-app'.tr,
       translations: MessageTranslations(),
       locale: Get.deviceLocale,
-      initialRoute: userConnected.id != null ? Environment.PATH_HOME: Environment.PATH_LOGIN_PAGE,
+      initialRoute: userConnected.id != null ? Environment.PATH_HOME_PAGE: Environment.PATH_LOGIN_PAGE,
       getPages: [
         GetPage(
           name: Environment.PATH_LOGIN_PAGE,
@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
           page: () => SignUpPage()
         ),
         GetPage(
-          name: Environment.PATH_HOME,
+          name: Environment.PATH_HOME_PAGE,
           page: () => HomePage()
         ),
       ],

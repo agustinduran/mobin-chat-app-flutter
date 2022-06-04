@@ -18,19 +18,19 @@ class ProfilePage extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            createCircleImageUser(),
+            _createCircleImageUser(),
             const SizedBox(height: 20),
-            createUserInfo(
+            _createUserInfo(
                 'profile-name'.tr,
                 '${controller.user.name ?? ''} ${controller.user.surname ?? ''}',
                 Icons.person
             ),
-            createUserInfo(
+            _createUserInfo(
                 'profile-email'.tr,
                 controller.user.email ?? '',
                 Icons.email
             ),
-            createUserInfo(
+            _createUserInfo(
                 'profile-phone'.tr,
                 controller.user.phone ?? '',
                 Icons.phone
@@ -41,7 +41,7 @@ class ProfilePage extends StatelessWidget {
     );
   }
 
-  Widget createUserInfo(String title, String subtitle, IconData iconData) {
+  Widget _createUserInfo(String title, String subtitle, IconData iconData) {
     return Container(
       margin: const EdgeInsets.only(left: 30, right: 30),
       child: ListTile(
@@ -52,7 +52,7 @@ class ProfilePage extends StatelessWidget {
     );
   }
 
-  Widget createCircleImageUser() {
+  Widget _createCircleImageUser() {
     return Center(
       child: Container(
         margin: const EdgeInsets.only(top: 30),

@@ -5,7 +5,7 @@ import 'package:mobin_app/app/presentation/pages/sign_up/sign_up_controller.dart
 
 class SignUpPage extends StatelessWidget {
   
-  SignUpController controller = SignUpController();
+  SignUpController controller = Get.put(SignUpController());
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +25,7 @@ class SignUpPage extends StatelessWidget {
           children: [
             const SizedBox(height: 30),
             _createBannerRegister(),
+            _createCircleImageUser(context),
             _createTextFieldUsername(),
             Obx(() =>_createTextFieldPassword()),
             Obx(() =>_createTextFieldPasswordConfirmation()),
@@ -55,7 +56,25 @@ class SignUpPage extends StatelessWidget {
     );
   }
 
-    Widget _createTextFieldUsername() {
+  Widget _createCircleImageUser(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 16, bottom: 8),
+      child: GestureDetector(
+        onTap: () => controller.showAlertDialog(context),
+        child: GetBuilder<SignUpController>(
+          builder: (value) => CircleAvatar(
+            backgroundImage: controller.imageFile != null ? 
+              FileImage(controller.imageFile!) :
+              const AssetImage(Environment.IMG_USER_PROFILE_PLACEHOLDER) as ImageProvider,
+            backgroundColor: Colors.black,
+            radius: 60
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _createTextFieldUsername() {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 50, vertical: 7),
       decoration: BoxDecoration(

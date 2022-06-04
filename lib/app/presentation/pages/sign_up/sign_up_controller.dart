@@ -1,6 +1,8 @@
-import 'package:flutter/cupertino.dart';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:mobin_app/app/data/models/user.dart';
 import 'package:mobin_app/app/domain/entities/user_response.dart';
 import 'package:mobin_app/app/domain/services/user_service.dart';
@@ -23,6 +25,9 @@ class SignUpController extends GetxController {
   RxString firstPasswordToCompare = ''.obs;
 
   final formKeySignUp = GlobalKey<FormState>();
+
+  ImagePicker picker = ImagePicker();
+  File? imageFile;
 
   void register(/*BuildContext context*/) async {
     // Hide keyboard
@@ -70,11 +75,11 @@ class SignUpController extends GetxController {
         snackPosition: SnackPosition.BOTTOM,
         backgroundColor: Colors.red,
         borderRadius: 10,
-        margin: EdgeInsets.all(10),
+        margin: const EdgeInsets.all(10),
         borderColor: Colors.red,
         colorText: Colors.white,
-        duration: Duration(seconds: 3),
-        icon: Icon(Icons.error, color: Colors.white)
+        duration: const Duration(seconds: 3),
+        icon: const Icon(Icons.error, color: Colors.white)
       );
     }
 
@@ -96,6 +101,47 @@ class SignUpController extends GetxController {
     nameController.text            = '';
     surnameController.text         = '';
     phoneController.text           = '';
+  }
+
+  Future selectImage(ImageSource imgSource) async {
+    final XFile? image = await picker.pickImage(source: imgSource);
+    if (image != null) {
+      imageFile = File(image.path);
+      update(); // Update UI (SetState in GetX)
+    }
+  }
+
+  void showAlertDialog(BuildContext context) {
+    Widget galleryButton = ElevatedButton(
+      child: Text('gallery-label'.tr),
+      onPressed: () {
+        Get.back();
+        selectImage(ImageSource.gallery);
+      }
+    );
+
+    Widget cameraButton = ElevatedButton(
+      child: Text('camera-label'.tr),
+      onPressed: () {
+        Get.back();
+        selectImage(ImageSource.camera);
+      }
+    );
+
+    AlertDialog alertDialog = AlertDialog(
+      title: Text('pick-image'.tr),
+      actions: [
+        galleryButton,
+        cameraButton,
+      ],
+    );
+
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alertDialog;
+      }
+    );
   }
 
 }

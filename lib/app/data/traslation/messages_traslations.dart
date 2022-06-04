@@ -47,6 +47,11 @@ class MessageTranslations extends Translations {
       'profile-name' : 'Name',
       'profile-email' : 'Email',
       'profile-phone' : 'Phone',
+      // LABELS
+      'gallery-label' : 'Gallery',
+      'camera-label' : 'Camera',
+      'pick-image' : 'Select an image',
+
 
 
 
@@ -169,6 +174,10 @@ class MessageTranslations extends Translations {
       'profile-name' : 'Nombre',
       'profile-email' : 'Correo electrónico',
       'profile-phone' : 'Teléfono',
+      // LABELS
+      'gallery-label' : 'Galería',
+      'camera-label' : 'Cámara',
+      'pick-image' : 'Seleccioná una imagen',
     },
   };
 

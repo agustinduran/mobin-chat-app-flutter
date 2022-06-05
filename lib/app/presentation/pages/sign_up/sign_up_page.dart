@@ -20,23 +20,25 @@ class SignUpPage extends StatelessWidget {
       reverse: true,
       child: Form(
         key: controller.formKeySignUp,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const SizedBox(height: 30),
-            _createBannerRegister(),
-            _createCircleImageUser(context),
-            _createTextFieldUsername(),
-            Obx(() =>_createTextFieldPassword()),
-            Obx(() =>_createTextFieldPasswordConfirmation()),
-            _createTextFieldName(),
-            _createTextFieldSurname(),
-            _createTextFieldEmail(),
-            _createTextFieldPhone(),
-            _createRegisterButton(),
-            _createButtonHaveAccount(),
-            Padding(padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom))
-          ],
+        child: AutofillGroup(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const SizedBox(height: 30),
+              _createBannerRegister(),
+              _createCircleImageUser(context),
+              _createTextFieldUsername(),
+              Obx(() =>_createTextFieldPassword()),
+              Obx(() =>_createTextFieldPasswordConfirmation()),
+              _createTextFieldName(),
+              _createTextFieldSurname(),
+              _createTextFieldEmail(),
+              _createTextFieldPhone(),
+              _createRegisterButton(),
+              _createButtonHaveAccount(),
+              Padding(padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom))
+            ],
+          ),
         ),
       ),
     );

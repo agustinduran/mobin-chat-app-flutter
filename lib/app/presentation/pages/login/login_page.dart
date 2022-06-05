@@ -24,16 +24,18 @@ class LoginPage extends StatelessWidget {
       reverse: true,
       child: Form(
         key: controller.formKeyLogin,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            _createBannerLogo(context),
-            _createTextFieldEmail(),
-            Obx(() =>_createTextFieldPassword()),
-            _createLoginButton(),
-            _createButtonDontHaveAccount(),
-            Padding(padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom))
-          ],
+        child: AutofillGroup(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              _createBannerLogo(context),
+              _createTextFieldEmail(),
+              Obx(() =>_createTextFieldPassword()),
+              _createLoginButton(),
+              _createButtonDontHaveAccount(),
+              Padding(padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom))
+            ],
+          ),
         ),
       ),
     );

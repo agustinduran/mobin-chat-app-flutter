@@ -15,12 +15,7 @@ class LoginController extends GetxController {
 
   GetStorage storage = GetStorage();
 
-  final formKeyLogin = GlobalKey<FormState>();
-
   Future<LoginResponse> login() async {
-    // Make save in all fields
-    formKeyLogin.currentState?.save();
-
     String email = emailController.text.trim();
     String password = passwordController.text.trim();
 
@@ -38,6 +33,11 @@ class LoginController extends GetxController {
 
   void mutateHidePassword() {
     hidePassword.value = !(hidePassword.value);
+  }
+
+  void clearForm() {
+    emailController.text           = '';
+    passwordController.text        = '';
   }
 
 }

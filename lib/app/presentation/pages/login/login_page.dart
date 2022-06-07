@@ -3,10 +3,13 @@ import 'package:get/get.dart';
 import 'package:mobin_app/app/data/environment.dart';
 import 'package:mobin_app/app/domain/entities/login_response.dart';
 import 'package:mobin_app/app/presentation/pages/login/login_controller.dart';
+import 'package:sn_progress_dialog/sn_progress_dialog.dart';
 
 class LoginPage extends StatelessWidget {
 
   LoginController controller = Get.put(LoginController());
+
+  final formKeyLogin = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +26,7 @@ class LoginPage extends StatelessWidget {
     return SingleChildScrollView(
       reverse: true,
       child: Form(
-        key: controller.formKeyLogin,
+        key: formKeyLogin,
         child: AutofillGroup(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -122,14 +125,22 @@ class LoginPage extends StatelessWidget {
       child: ElevatedButton(
         onPressed: () async {
           // Hide keyboard
-          // FocusScope.of(context).unfocus();
+          FocusScope.of(Get.context!).unfocus();
 
           // Execute validators
-          if (!controller.formKeyLogin.currentState!.validate())
-            return null;
+          if (!formKeyLogin.currentState!.validate())
+            return;
+          
+          // Make save in all fields
+          formKeyLogin.currentState?.save();
 
+          ProgressDialog pd = ProgressDialog(context: Get.context);
+          pd.show(max: 100, msg: 'progress-dialog-wait'.tr);
           LoginResponse resp = await controller.login();
+          pd.close();
+
           if (resp.success) {
+            controller.clearForm();
             Get.offAllNamed(Environment.PATH_HOME_PAGE);
           } else {
             Get.snackbar(

@@ -51,6 +51,7 @@ class MessageTranslations extends Translations {
       'gallery-label' : 'Gallery',
       'camera-label' : 'Camera',
       'pick-image' : 'Select an image',
+      'progress-dialog-wait' : 'Wait a moment...',
 
 
 
@@ -178,6 +179,7 @@ class MessageTranslations extends Translations {
       'gallery-label' : 'Galería',
       'camera-label' : 'Cámara',
       'pick-image' : 'Seleccioná una imagen',
+      'progress-dialog-wait' : 'Espere un momento...',
     },
   };
 

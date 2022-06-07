@@ -24,22 +24,11 @@ class SignUpController extends GetxController {
 
   RxString firstPasswordToCompare = ''.obs;
 
-  final formKeySignUp = GlobalKey<FormState>();
-
   ImagePicker picker = ImagePicker();
   File? imageFile;
 
   void register(/*BuildContext context*/) async {
-    // Hide keyboard
-    // FocusScope.of(context).unfocus();
-
-    // Execute validators
-    if (!formKeySignUp.currentState!.validate())
-      return;
     
-    // Make save in all fields
-    formKeySignUp.currentState?.save();
-
     String email = emailController.text.trim();
     String password = passwordController.text.trim();
     String confirmPassword = confirmPasswordController.text.trim();
@@ -47,10 +36,6 @@ class SignUpController extends GetxController {
     String name = nameController.text.trim();
     String surname = surnameController.text;
     String phone = phoneController.text.trim();
-
-    // TODO: Mostrar rulito
-    // final ProgressDialog cargandoWidget = new ProgressDialog(Get.context);
-    // cargandoWidget.show();
 
     User user = User(
       email: email,
@@ -64,6 +49,7 @@ class SignUpController extends GetxController {
 
     Response response = await service.signUp(user);
 
+    // TODO: Mover al page, similar a como está el login
     if (response.statusCode == 201) {
       UserResponse userResponse = UserResponse.fromJson(response.body);
       clearForm();

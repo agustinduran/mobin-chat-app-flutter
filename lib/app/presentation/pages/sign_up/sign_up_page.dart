@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobin_app/app/data/environment.dart';
 import 'package:mobin_app/app/presentation/pages/sign_up/sign_up_controller.dart';
+import 'package:sn_progress_dialog/sn_progress_dialog.dart';
 
 class SignUpPage extends StatelessWidget {
   
   SignUpController controller = Get.put(SignUpController());
+
+  final formKeySignUp = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +22,7 @@ class SignUpPage extends StatelessWidget {
     return SingleChildScrollView(
       reverse: true,
       child: Form(
-        key: controller.formKeySignUp,
+        key: formKeySignUp,
         child: AutofillGroup(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -335,7 +338,20 @@ class SignUpPage extends StatelessWidget {
       width: double.infinity,
       margin: const EdgeInsets.symmetric(horizontal: 50, vertical: 12),
       child: ElevatedButton(
-        onPressed: () => controller.register(),
+        onPressed: () {
+          // Hide keyboard
+          FocusScope.of(Get.context!).unfocus();
+          // Execute validators
+          if (!formKeySignUp.currentState!.validate())
+            return;
+          // Make save in all fields
+          formKeySignUp.currentState?.save();
+
+          ProgressDialog pd = ProgressDialog(context: Get.context);
+          pd.show(max: 100, msg: 'progress-dialog-wait'.tr);
+          controller.register();
+          pd.close();
+        },
         style: ElevatedButton.styleFrom(
           primary: Environment.COLOR_PRIMARY,
           shape: RoundedRectangleBorder(

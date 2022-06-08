@@ -6,6 +6,7 @@ import 'package:mobin_app/app/data/models/user.dart';
 import 'package:mobin_app/app/data/traslation/messages_traslations.dart';
 import 'package:mobin_app/app/presentation/pages/home/home_page.dart';
 import 'package:mobin_app/app/presentation/pages/login/login_page.dart';
+import 'package:mobin_app/app/presentation/pages/profile-edit/profile_edit_page.dart';
 import 'package:mobin_app/app/presentation/pages/sign_up/sign_up_page.dart';
 
 User userConnected = User.fromJson(GetStorage().read('USER_CONNECTED') ?? {});
@@ -39,6 +40,10 @@ class MyApp extends StatelessWidget {
         GetPage(
           name: Environment.PATH_HOME_PAGE,
           page: () => HomePage()
+        ),
+        GetPage(
+          name: Environment.PATH_EDIT_PROFILE_PAGE,
+          page: () => ProfileEditPage()
         ),
       ],
       navigatorKey: Get.key,

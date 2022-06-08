@@ -13,12 +13,12 @@ class SignUpPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _crearBody(context),
+      body: _createBody(context),
       backgroundColor: Environment.COLOR_BLACK1
     );
   }
   
-  Widget _crearBody(BuildContext context) {
+  Widget _createBody(BuildContext context) {
     return SingleChildScrollView(
       reverse: true,
       child: Form(

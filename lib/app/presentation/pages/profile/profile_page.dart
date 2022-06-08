@@ -10,10 +10,24 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => controller.signOut(),
-        backgroundColor: Environment.COLOR_PRIMARY,
-        child: const Icon(Icons.power_settings_new)
+      floatingActionButton: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          FloatingActionButton(
+            onPressed: () => Get.toNamed(Environment.PATH_EDIT_PROFILE_PAGE),
+            backgroundColor: Environment.COLOR_PRIMARY,
+            child: const Icon(Icons.edit)
+          ),
+          const SizedBox(height: 10),
+          FloatingActionButton(
+            onPressed: () {
+              controller.signOut();
+              Get.offNamedUntil(Environment.PATH_LOGIN_PAGE, (route) => false);
+            },
+            backgroundColor: Environment.COLOR_PRIMARY,
+            child: const Icon(Icons.power_settings_new)
+          ),
+        ],
       ),
       body: SafeArea(
         child: Column(
@@ -63,8 +77,8 @@ class ProfilePage extends StatelessWidget {
             child: FadeInImage.assetNetwork(
                 fit: BoxFit.cover,
                 placeholder: Environment.IMG_USER_PROFILE_PLACEHOLDER,
-                // image: controller.user.image!
-                image: 'https://www.ldsdb.com/dadmin/photosfldr/mission/8275_6V5A8958ee.jpg'
+                // TODO: Subir al bucket la imagen por default
+                image: controller.user.image ?? 'https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg'
             ),
           ),
         ),

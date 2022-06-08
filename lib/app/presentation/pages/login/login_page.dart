@@ -16,13 +16,13 @@ class LoginPage extends StatelessWidget {
   
     return Scaffold(
       body: Center(
-        child: _crearBody(context),
+        child: _createBody(context),
       ),
       backgroundColor: Environment.COLOR_BLACK2,
     );
   }
   
-  Widget _crearBody(BuildContext context) {
+  Widget _createBody(BuildContext context) {
     return SingleChildScrollView(
       reverse: true,
       child: Form(

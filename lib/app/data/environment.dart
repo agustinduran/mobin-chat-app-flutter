@@ -10,9 +10,10 @@ class Environment {
   static const COLOR_GREY      = Color(0xFF384373);
 
   // Routes
-  static const PATH_LOGIN_PAGE    = '/login';
-  static const PATH_SIGN_UP_PAGE  = '/sign-up';
-  static const PATH_HOME_PAGE     = '/app/home';
+  static const PATH_LOGIN_PAGE        = '/login';
+  static const PATH_SIGN_UP_PAGE      = '/sign-up';
+  static const PATH_HOME_PAGE         = '/app/home';
+  static const PATH_EDIT_PROFILE_PAGE = '/app/profile/edit';
 
   // Assets
   static const IMG_USER_PROFILE_PLACEHOLDER = 'assets/img/user_profile_placeholder.png';

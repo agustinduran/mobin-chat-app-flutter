@@ -26,8 +26,8 @@ class Environment {
 
   static const ENDPOINT_LOGIN   = '/api/auth/login/';
   static const ENDPOINT_SIGN_UP = '/api/auth/register/';
-  
 
-  static const ENDPOINT_USERS   = '/api/user/';
+  static const ENDPOINT_USER = '/api/users/';
+
 
 }

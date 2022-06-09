@@ -5,8 +5,8 @@ import 'package:mobin_app/app/data/models/user.dart';
 class UserService extends GetConnect {
 
   final String _urlSignUp = Environment.HOST + Environment.ENDPOINT_SIGN_UP;
-  final String _urlLogin = Environment.HOST + Environment.ENDPOINT_LOGIN;
-  // final String urlUser = Environment.HOST + Environment.ENDPOINT_USER;
+  final String _urlLogin  = Environment.HOST + Environment.ENDPOINT_LOGIN;
+  final String _urlUser   = Environment.HOST + Environment.ENDPOINT_USER;
 
   Future<Response> signUp(User user) async {
     Response response = await post(
@@ -49,5 +49,17 @@ class UserService extends GetConnect {
 
   //   return response;
   // }
+
+  Future<Response> getUsers(String token) async {
+    Response response = await get(
+      _urlUser,
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': token
+      }
+    );
+
+    return response;
+  }
   
 }

@@ -14,12 +14,14 @@ class ProfilePage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           FloatingActionButton(
+            heroTag: "btn1",
             onPressed: () => Get.toNamed(Environment.PATH_EDIT_PROFILE_PAGE),
             backgroundColor: Environment.COLOR_PRIMARY,
-            child: const Icon(Icons.edit)
+            child: const Icon(Icons.edit),
           ),
           const SizedBox(height: 10),
           FloatingActionButton(
+            heroTag: "btn2",
             onPressed: () {
               controller.signOut();
               Get.offNamedUntil(Environment.PATH_LOGIN_PAGE, (route) => false);

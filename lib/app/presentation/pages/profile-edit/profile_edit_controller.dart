@@ -9,7 +9,7 @@ import 'package:mobin_app/app/domain/services/user_service.dart';
 
 class ProfileEditController extends GetxController {
 
-  User user = User.fromJson(GetStorage().read('USER_CONNECTED') ?? {});
+  User user = GetStorage().read('USER_CONNECTED');
 
   UserService service = UserService();
 

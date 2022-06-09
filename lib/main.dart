@@ -6,6 +6,7 @@ import 'package:mobin_app/app/data/models/user.dart';
 import 'package:mobin_app/app/data/traslation/messages_traslations.dart';
 import 'package:mobin_app/app/presentation/pages/home/home_page.dart';
 import 'package:mobin_app/app/presentation/pages/login/login_page.dart';
+import 'package:mobin_app/app/presentation/pages/messages/messages_page.dart';
 import 'package:mobin_app/app/presentation/pages/profile-edit/profile_edit_page.dart';
 import 'package:mobin_app/app/presentation/pages/sign_up/sign_up_page.dart';
 
@@ -44,6 +45,10 @@ class MyApp extends StatelessWidget {
         GetPage(
           name: Environment.PATH_EDIT_PROFILE_PAGE,
           page: () => ProfileEditPage()
+        ),
+        GetPage(
+          name: Environment.PATH_MESSAGES_PAGE,
+          page: () => MessagesPage()
         ),
       ],
       navigatorKey: Get.key,

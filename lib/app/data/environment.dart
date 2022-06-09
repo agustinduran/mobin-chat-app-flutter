@@ -14,6 +14,7 @@ class Environment {
   static const PATH_SIGN_UP_PAGE      = '/sign-up';
   static const PATH_HOME_PAGE         = '/app/home';
   static const PATH_EDIT_PROFILE_PAGE = '/app/profile/edit';
+  static const PATH_MESSAGES_PAGE     = '/app/chats/messages';
 
   // Assets
   static const IMG_USER_PROFILE_PLACEHOLDER = 'assets/img/user_profile_placeholder.png';

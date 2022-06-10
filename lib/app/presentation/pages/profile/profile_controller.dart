@@ -4,7 +4,7 @@ import 'package:mobin_app/app/data/models/user.dart';
 
 class ProfileController extends GetxController {
 
-  User user = GetStorage().read('USER_CONNECTED');
+  var user = GetStorage().read('USER_CONNECTED');
 
   void signOut() async {
     await GetStorage().remove('USER_CONNECTED');

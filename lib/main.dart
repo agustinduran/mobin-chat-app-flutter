@@ -10,7 +10,7 @@ import 'package:mobin_app/app/presentation/pages/messages/messages_page.dart';
 import 'package:mobin_app/app/presentation/pages/profile-edit/profile_edit_page.dart';
 import 'package:mobin_app/app/presentation/pages/sign_up/sign_up_page.dart';
 
-User userConnected = User.fromJson(GetStorage().read('USER_CONNECTED') ?? {});
+var userConnected = User.fromJson(GetStorage().read('USER_CONNECTED') ?? {});
 // String token = GetStorage().read('ACCESS_TOKEN');
 
 void main() async {

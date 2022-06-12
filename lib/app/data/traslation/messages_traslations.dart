@@ -47,11 +47,21 @@ class MessageTranslations extends Translations {
       'profile-name' : 'Name',
       'profile-email' : 'Email',
       'profile-phone' : 'Phone',
+      'edit-page-label' : 'Edit profile',
       // LABELS
       'gallery-label' : 'Gallery',
       'camera-label' : 'Camera',
       'pick-image' : 'Select an image',
       'progress-dialog-wait' : 'Wait a moment...',
+      // CHAT
+      'chat-title' : 'Chat',
+      'chat-send-button' : 'Send',
+      'chat-message-placeholder' : 'Type a message...',
+      'chat-message-error' : 'Ups',
+      'chat-message-error-message' : 'Something went wrong',
+      'chat-message-success-message' : 'Message sent successfully',
+      'chat-message-success-button' : 'Ok',
+      'disconnected' : 'Disconected',
 
 
 
@@ -75,16 +85,6 @@ class MessageTranslations extends Translations {
       'profile-delete-success-message' : 'Account deleted successfully',
       'profile-delete-success-button' : 'Ok',
 
-
-
-      // CHAT
-      'chat-title' : 'Chat',
-      'chat-send-button' : 'Send',
-      'chat-message-placeholder' : 'Type a message',
-      'chat-message-error' : 'Ups',
-      'chat-message-error-message' : 'Something went wrong',
-      'chat-message-success-message' : 'Message sent successfully',
-      'chat-message-success-button' : 'Ok',
       // CONTACTS
       'contacts-title' : 'Contacts',
       'contacts-add-button' : 'Add',
@@ -175,11 +175,21 @@ class MessageTranslations extends Translations {
       'profile-name' : 'Nombre',
       'profile-email' : 'Correo electrónico',
       'profile-phone' : 'Teléfono',
+      'edit-page-label' : 'Editar perfil',
       // LABELS
       'gallery-label' : 'Galería',
       'camera-label' : 'Cámara',
       'pick-image' : 'Seleccioná una imagen',
       'progress-dialog-wait' : 'Espere un momento...',
+      // CHAT
+      'chat-title' : 'Chat',
+      'chat-send-button' : 'Enviar',
+      'chat-message-placeholder' : 'Escribe un mensaje...',
+      'chat-message-error' : 'Ups',
+      'chat-message-error-message' : 'Algo salió mal',
+      'chat-message-success-message' : '¡Mensaje enviado satisfactoriamente!',
+      'chat-message-success-button' : 'Ok',
+      'disconnected' : 'Desconectado',
     },
   };
 

@@ -87,7 +87,7 @@ class MessagesPage extends StatelessWidget {
               keyboardType: TextInputType.text,
               decoration: InputDecoration(
                 border: InputBorder.none,
-                hintText: 'write-message'.tr,
+                hintText: 'chat-message-placeholder'.tr,
                 contentPadding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20)
               ),
             ),

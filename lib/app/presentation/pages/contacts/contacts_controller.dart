@@ -9,7 +9,7 @@ class ContactsController extends GetxController {
   UserService service = UserService();
 
   String token = GetStorage().read('ACCESS_TOKEN') ?? '';
-  var user     = GetStorage().read('USER_CONNECTED');
+  User user     = User.fromJson(GetStorage().read('USER_CONNECTED') ?? {});
 
   Future<ContactsResponse> getUsers() async {
     Response response = await service.getUsers(token);

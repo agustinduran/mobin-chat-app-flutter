@@ -48,10 +48,9 @@ class User {
         "username"             : username,
         "email"                : email,
         "name"                 : name,
-        "image"                : image,
-        "password"             : password,
-        "password-confirmation": passwordConfirmation,
         "surname"              : surname,
+        "image"                : image,
+        "roles"                : roles,
         "phone"                : phone,
     };
 }

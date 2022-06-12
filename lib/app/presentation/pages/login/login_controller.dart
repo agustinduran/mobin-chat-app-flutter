@@ -25,7 +25,7 @@ class LoginController extends GetxController {
 
     if (resp.success) {
       storage.write('ACCESS_TOKEN', resp.token);
-      storage.write('USER_CONNECTED', resp.user);
+      storage.write('USER_CONNECTED', resp.user!.toJson());
     }
     
     return resp;

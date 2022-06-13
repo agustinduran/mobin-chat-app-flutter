@@ -29,6 +29,7 @@ class Environment {
   static const ENDPOINT_SIGN_UP = '/api/auth/register/';
 
   static const ENDPOINT_USER = '/api/users/';
+  static const ENDPOINT_CHAT = '/api/chats/';
 
   // External assets
   // TODO: Subir al bucket la imagen por default

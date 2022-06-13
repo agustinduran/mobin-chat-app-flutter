@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:mobin_app/app/data/environment.dart';
 import 'package:mobin_app/app/data/models/user.dart';
-import 'package:mobin_app/app/data/traslation/messages_traslations.dart';
+import 'package:mobin_app/app/data/translation/messages_translations.dart';
 import 'package:mobin_app/app/presentation/pages/home/home_page.dart';
 import 'package:mobin_app/app/presentation/pages/login/login_page.dart';
 import 'package:mobin_app/app/presentation/pages/messages/messages_page.dart';

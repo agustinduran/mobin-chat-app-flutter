@@ -62,6 +62,7 @@ class MessageTranslations extends Translations {
       'chat-message-success-message' : 'Message sent successfully',
       'chat-message-success-button' : 'Ok',
       'disconnected' : 'Disconected',
+      'chat-created-success' : 'Chat created successfully',
 
 
 
@@ -190,6 +191,7 @@ class MessageTranslations extends Translations {
       'chat-message-success-message' : '¡Mensaje enviado satisfactoriamente!',
       'chat-message-success-button' : 'Ok',
       'disconnected' : 'Desconectado',
+      'chat-created-success' : 'Chat creado satisfactoriamente',
     },
   };
 

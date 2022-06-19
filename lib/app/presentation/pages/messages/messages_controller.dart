@@ -47,17 +47,26 @@ class MessagesController extends GetxController {
       return;
     }
 
-    // Message message = Message(
-    //   message: message,
-    //   idSender: user.id.toString(),
-    //   idReceiver: friend.id.toString(),
-    //   idChat: 
-    //   status: 
-    //   url: 
-    //   isImage: 
-    //   isVideo: 
-    //   timestamp: 
-    // );
+    if (idChat.isNegative) {
+      return;
+    }
+
+    Message messageObject = Message(
+      message: message,
+      idSender: user.id.toString(),
+      idReceiver: friend.id.toString(),
+      idChat: idChat.toString(),
+      isImage: 0,
+      isVideo: 0
+    );
+
+    Response response = await service.create(messageObject, token);
+    GeneralResponse generalResponse = GeneralResponse.fromJson(response.body);
+
+    if (generalResponse.success == true) {
+      messageField.text = '';
+    }
+
   }
 
 }

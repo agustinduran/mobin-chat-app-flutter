@@ -98,7 +98,7 @@ class MessagesPage extends StatelessWidget {
             flex: 2,
             child: IconButton(
               icon: const Icon(Icons.send),
-              onPressed: () {},
+              onPressed: () => controller.sendMessage(),
             ),
           )
         ]

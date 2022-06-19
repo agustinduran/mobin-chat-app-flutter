@@ -15,8 +15,8 @@ class Message {
   String? idChat;
   String? status;
   String? url;
-  bool? isImage;
-  bool? isVideo;
+  int? isImage;
+  int? isVideo;
   int? timestamp;
   // VideoPlayerController? controller;
 
@@ -61,13 +61,13 @@ class Message {
   Map<String, dynamic> toJson() => {
     "id": id,
     "message": message,
-    "id_receiver": idReceiver,
-    "id_sender": idSender,
-    "id_chat": idChat,
+    "id-user-receiver": idReceiver,
+    "id-user-sender": idSender,
+    "id-chat": idChat,
     "status": status,
     "url": url,
-    "is_image": isImage,
-    "is_video": isVideo,
+    "is-image": isImage,
+    "is-video": isVideo,
     "timestamp": timestamp,
   };
 }

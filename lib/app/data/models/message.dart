@@ -8,11 +8,11 @@ String messageToJson(Message data) => json.encode(data.toJson());
 
 class Message {
 
-  String? id;
+  int? id;
   String? message;
-  String? idReceiver;
-  String? idSender;
-  String? idChat;
+  int? idReceiver;
+  int? idSender;
+  int? idChat;
   String? status;
   String? url;
   int? isImage;
@@ -37,14 +37,14 @@ class Message {
   factory Message.fromJson(Map<String, dynamic> json) => Message(
     id: json["id"],
     message: json["message"],
-    idReceiver: json["id_receiver"],
-    idSender: json["id_sender"],
+    idReceiver: json["id_user_receiver"],
+    idSender: json["id_user_sender"],
     idChat: json["id_chat"],
     status: json["status"],
     url: json["url"],
     isImage: json["is_image"],
     isVideo: json["is_video"],
-    timestamp: int.parse(json["timestamp"]),
+    timestamp: json["timestamp"],
   );
 
   static List<Message> fromJsonList(List<dynamic> jsonList) {

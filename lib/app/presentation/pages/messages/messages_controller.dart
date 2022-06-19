@@ -13,7 +13,9 @@ class MessagesController extends GetxController {
   User friend  = User.fromJson(Get.arguments['user']);
   User user    = User.fromJson(GetStorage().read('USER_CONNECTED') ?? {});
   String token = GetStorage().read('ACCESS_TOKEN') ?? '';
+
   int idChat = -1;
+  List<Message> messagesList = <Message>[].obs;
 
   MessageService service  = MessageService();
   ChatService chatService = ChatService();
@@ -35,6 +37,7 @@ class MessagesController extends GetxController {
     
     if (generalResponse.success == true) {
       idChat = generalResponse.data as int;
+      getMessages();
     }
 
     return generalResponse;
@@ -53,9 +56,9 @@ class MessagesController extends GetxController {
 
     Message messageObject = Message(
       message: message,
-      idSender: user.id.toString(),
-      idReceiver: friend.id.toString(),
-      idChat: idChat.toString(),
+      idSender: user.id,
+      idReceiver: friend.id,
+      idChat: idChat,
       isImage: 0,
       isVideo: 0
     );
@@ -67,6 +70,16 @@ class MessagesController extends GetxController {
       messageField.text = '';
     }
 
+  }
+
+  void getMessages() async {
+    Response response = await service.getMessages(idChat.toString(), token);
+    GeneralResponse generalResponse = GeneralResponse.fromJson(response.body);
+
+    List<Message> messages = Message.fromJsonList(generalResponse.data as List);
+
+    messagesList.clear();
+    messagesList.addAll(messages);
   }
 
 }

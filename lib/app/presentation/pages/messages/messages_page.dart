@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobin_app/app/data/environment.dart';
+import 'package:mobin_app/app/data/models/message.dart';
+import 'package:mobin_app/app/presentation/global_widgets/bubble.dart';
 import 'package:mobin_app/app/presentation/pages/messages/messages_controller.dart';
+import 'package:mobin_app/app/presentation/utilities/relative_time_util.dart';
 
 class MessagesPage extends StatelessWidget {
 
@@ -11,7 +14,7 @@ class MessagesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(245, 246, 248, 1),
-      body: Column(
+      body: Obx (() => Column(
         children: [
           _createAppBar(),
           Expanded(
@@ -21,7 +24,7 @@ class MessagesPage extends StatelessWidget {
           _createMessageBox(context)
         ],
       )
-    );
+    ));
   }
   
   _createAppBar() {
@@ -110,7 +113,30 @@ class MessagesPage extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 20),
       child: ListView(
-        children: [],
+        children: _createMessages(),
+      )
+    );
+  }
+
+  List<Widget> _createMessages() {
+    return controller.messagesList.map((message) {
+      return _createIndividualMessage(message);
+    }).toList();
+  }
+  
+  Widget _createIndividualMessage(Message message) {
+    return Container(
+      alignment: message.idSender == controller.user.id 
+        ? Alignment.centerRight
+        : Alignment.centerLeft,
+      margin: const EdgeInsets.symmetric(horizontal: 20),
+      child: Bubble(
+        message: message.message ?? '',
+        delivered: true,
+        isMe: message.idSender == controller.user.id ? true : false,
+        time: RelativeTimeUtil.getRelativeTime(message.timestamp!),
+        // TODO: Traslations
+        status: message.status ?? 'ENVIADO'
       )
     );
   }

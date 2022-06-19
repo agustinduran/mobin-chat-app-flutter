@@ -49,16 +49,16 @@ class MessageService extends GetConnect {
   //   return response;
   // }
 
-  // Future<Response> getUsers(String token) async {
-  //   Response response = await get(
-  //     _urlUser,
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //       'Authorization': token
-  //     }
-  //   );
+  Future<Response> getMessages(String idChat, String token) async {
+    Response response = await get(
+      _urlMessage + idChat,
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': token
+      }
+    );
 
-  //   return response;
-  // }
+    return response;
+  }
   
 }

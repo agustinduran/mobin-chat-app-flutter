@@ -84,6 +84,8 @@ class MessagesPage extends StatelessWidget {
           Expanded(
             flex: 10,
             child: TextField(
+              maxLength: 80,
+              controller: controller.messageField,
               keyboardType: TextInputType.text,
               decoration: InputDecoration(
                 border: InputBorder.none,

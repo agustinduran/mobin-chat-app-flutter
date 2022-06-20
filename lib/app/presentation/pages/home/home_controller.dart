@@ -10,8 +10,7 @@ class HomeController extends GetxController {
 
   var tabIndex = 0.obs;
 
-  // TODO: Test with var environment
-  Socket socket = io('http://192.168.1.23:3000/chat', <String, dynamic> {
+  Socket socket = io(Environment.HOST + Environment.ENDPOINT_SOCKET_CHAT, <String, dynamic> {
     'transports': ['websocket'],
     'autoConnect': false
   });
@@ -27,7 +26,6 @@ class HomeController extends GetxController {
   void connectAndListen() {
     if (user.id != null) {
       socket.connect();
-      print('juju');
       socket.onConnect((data) => {
         print('connected to SocketIO server')
       });

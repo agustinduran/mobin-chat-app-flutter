@@ -22,7 +22,6 @@ class RelativeTimeUtil {
       if (diff.inDays == 7) {
         time = 'Hace ' + (diff.inDays / 7).floor().toString() + ' semana';
       } else {
-
         time = 'Hace ' + (diff.inDays / 7).floor().toString() + ' semanas';
       }
     }

@@ -32,6 +32,7 @@ class Environment {
   static const ENDPOINT_CHAT    = '/api/chats/';
   static const ENDPOINT_MESSAGE = '/api/messages/';
 
+  static const ENDPOINT_SOCKET_CHAT = '/sockets/chats/';
   // External assets
   // TODO: Subir al bucket la imagen por default
   static const IMG_USER_PROFILE_DEFAULT_EXTERNAL = 'https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg';

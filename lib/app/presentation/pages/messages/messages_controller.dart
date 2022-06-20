@@ -7,6 +7,7 @@ import 'package:mobin_app/app/data/models/user.dart';
 import 'package:mobin_app/app/domain/entities/general_response.dart';
 import 'package:mobin_app/app/domain/services/chat_service.dart';
 import 'package:mobin_app/app/domain/services/message_service.dart';
+import 'package:mobin_app/app/presentation/pages/home/home_controller.dart';
 
 class MessagesController extends GetxController {
 
@@ -21,6 +22,8 @@ class MessagesController extends GetxController {
   ChatService chatService = ChatService();
 
   TextEditingController messageField = TextEditingController();
+
+  HomeController homeController = Get.find();
 
   MessagesController() {
     createChat();
@@ -38,6 +41,7 @@ class MessagesController extends GetxController {
     if (generalResponse.success == true) {
       idChat = generalResponse.data as int;
       getMessages();
+      listenMessage();
     }
 
     return generalResponse;
@@ -68,6 +72,7 @@ class MessagesController extends GetxController {
 
     if (generalResponse.success == true) {
       messageField.text = '';
+      emitMessage();
     }
 
   }
@@ -80,6 +85,18 @@ class MessagesController extends GetxController {
 
     messagesList.clear();
     messagesList.addAll(messages);
+  }
+
+  void listenMessage() {
+    homeController.socket.on('sockets/message/$idChat', (data) => {
+      getMessages()
+    });
+  }
+
+  void emitMessage() {
+    homeController.socket.emit('new-message', {
+      'id_chat': idChat
+    });
   }
 
 }

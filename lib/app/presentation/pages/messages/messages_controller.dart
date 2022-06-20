@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:mobin_app/app/data/environment.dart';
 import 'package:mobin_app/app/data/models/chat.dart';
 import 'package:mobin_app/app/data/models/message.dart';
 import 'package:mobin_app/app/data/models/user.dart';
@@ -88,13 +89,15 @@ class MessagesController extends GetxController {
   }
 
   void listenMessage() {
-    homeController.socket.on('sockets/message/$idChat', (data) => {
-      getMessages()
+    homeController.socket.on('message/$idChat', (data) {
+      print('ListenMessageOn');
+      getMessages();
     });
   }
 
   void emitMessage() {
-    homeController.socket.emit('new-message', {
+    print('EmitMessage');
+    homeController.socket.emit('message', {
       'id_chat': idChat
     });
   }

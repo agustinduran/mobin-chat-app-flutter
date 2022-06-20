@@ -38,7 +38,7 @@ class MessagesPage extends StatelessWidget {
           ),
         ),
         subtitle: Text(
-          'disconnected'.tr,
+          'user-status-disconnected'.tr,
           style: const TextStyle(color: Colors.grey)
         ),
         leading: IconButton(
@@ -135,8 +135,7 @@ class MessagesPage extends StatelessWidget {
         delivered: true,
         isMe: message.idSender == controller.user.id ? true : false,
         time: RelativeTimeUtil.getRelativeTime(message.timestamp!),
-        // TODO: Traslations
-        status: message.status ?? 'ENVIADO'
+        status: message.status ?? 'SENDED'
       )
     );
   }

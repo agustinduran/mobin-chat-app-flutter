@@ -61,9 +61,9 @@ class MessageTranslations extends Translations {
       'chat-message-error-message' : 'Something went wrong',
       'chat-message-success-message' : 'Message sent successfully',
       'chat-message-success-button' : 'Ok',
-      'disconnected' : 'Disconected',
       'chat-created-success' : 'Chat created successfully',
-
+      // CHAT STATES
+      'user-status-disconnected' : 'Disconected',
 
 
 
@@ -190,8 +190,10 @@ class MessageTranslations extends Translations {
       'chat-message-error-message' : 'Algo salió mal',
       'chat-message-success-message' : '¡Mensaje enviado satisfactoriamente!',
       'chat-message-success-button' : 'Ok',
-      'disconnected' : 'Desconectado',
       'chat-created-success' : 'Chat creado satisfactoriamente',
+      // CHAT STATES
+      'user-status-disconnected' : 'Desconectado',
+      
     },
   };
 

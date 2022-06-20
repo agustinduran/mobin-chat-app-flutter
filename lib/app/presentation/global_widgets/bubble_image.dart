@@ -11,7 +11,7 @@ class BubbleImage extends StatelessWidget {
   Widget build(BuildContext context) {
     final bg = isMe ? Colors.white : Environment.COLOR_PRIMARY;
     final align = isMe ? CrossAxisAlignment.start : CrossAxisAlignment.end;
-    final icon = status == 'ENVIADO' ? Icons.done : status == 'RECIBIDO' ? Icons.done_all : Icons.done_all;
+    final icon = status == 'SENDED' ? Icons.done : status == 'RECEIVED' ? Icons.done_all : Icons.done_all;
     final radius = isMe
         ? const BorderRadius.only(
       topRight: Radius.circular(5.0),
@@ -65,7 +65,7 @@ class BubbleImage extends StatelessWidget {
                     isMe == true ? Icon(
                       icon,
                       size: 12.0,
-                      color: status == 'VISTO' ? Colors.blue : Colors.black38,
+                      color: status == 'VIEWED' ? Colors.blue : Colors.black38,
                     ) : Container()
                   ],
                 ),

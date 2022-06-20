@@ -24,7 +24,7 @@ class _BubbleVideoState extends State<BubbleVideo> {
   Widget build(BuildContext context) {
     final bg = widget.isMe ? Colors.white : MyColors.primaryColorLight;
     final align = widget.isMe ? CrossAxisAlignment.start : CrossAxisAlignment.end;
-    final icon = widget.status == 'ENVIADO' ? Icons.done : widget.status == 'RECIBIDO' ? Icons.done_all : Icons.done_all;
+    final icon = widget.status == 'SENDED' ? Icons.done : widget.status == 'RECEIVED' ? Icons.done_all : Icons.done_all;
     final radius = widget.isMe
         ? BorderRadius.only(
       topRight: Radius.circular(5.0),
@@ -129,7 +129,7 @@ class _BubbleVideoState extends State<BubbleVideo> {
                     widget.isMe == true ? Icon(
                       icon,
                       size: 12.0,
-                      color: widget.status == 'VISTO' ? Colors.blue : Colors.black38,
+                      color: widget.status == 'VIEWED' ? Colors.blue : Colors.black38,
                     ) : Container()
                   ],
                 ),

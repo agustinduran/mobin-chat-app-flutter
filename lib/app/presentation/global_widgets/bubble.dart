@@ -52,7 +52,7 @@ class Bubble extends StatelessWidget {
                   children: <Widget>[
                     Text(
                       time,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.black38,
                         fontSize: 10.0,
                       )

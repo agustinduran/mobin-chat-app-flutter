@@ -42,7 +42,7 @@ class BubbleImage extends StatelessWidget {
           child: Stack(
             children: <Widget>[
               Container(
-                padding: EdgeInsets.only(bottom: 22),
+                padding: const EdgeInsets.only(bottom: 22),
                 child: isImage
                 ? FadeInImage.assetNetwork(
                     fit: BoxFit.cover,
@@ -57,11 +57,11 @@ class BubbleImage extends StatelessWidget {
                 child: Row(
                   children: <Widget>[
                     Text(time,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.black38,
                           fontSize: 10.0,
                         )),
-                    SizedBox(width: 3.0),
+                    const SizedBox(width: 3.0),
                     isMe == true ? Icon(
                       icon,
                       size: 12.0,

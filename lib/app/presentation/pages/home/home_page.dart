@@ -28,15 +28,15 @@ class HomePage extends StatelessWidget {
     return BottomNavigationBar(
       items: [
         BottomNavigationBarItem(
-          icon: Icon(Icons.chat),
+          icon: const Icon(Icons.chat),
           label: 'chats-label'.tr,
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.contacts),
+          icon: const Icon(Icons.contacts),
           label: 'contacts-label'.tr,
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.person),
+          icon: const Icon(Icons.person),
           label: 'profile-label'.tr,
         ),
       ],

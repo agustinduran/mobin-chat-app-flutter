@@ -37,14 +37,13 @@ class MessagesPage extends StatelessWidget {
             fontWeight: FontWeight.bold
           ),
         ),
-        subtitle: controller.isWriting.value == true 
-        ? Text(
-          'user-status-disconnected'.tr,
-          style: const TextStyle(color: Colors.grey))
-        : Text(
-          'user-status-writing'.tr,
-          style: const TextStyle(color: Colors.green)
-        ),
+        subtitle: controller.isWriting.value
+          ? Text(
+            'user-status-writing'.tr,
+            style: const TextStyle(color: Colors.green))
+          : Text(
+            'user-status-disconnected'.tr,
+            style: const TextStyle(color: Colors.grey)),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios),
           onPressed: () => Get.back(),

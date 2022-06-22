@@ -130,4 +130,13 @@ class MessagesController extends GetxController {
     });
   }
 
+    @override
+  void onClose() {
+    super.onClose();
+    scroll.dispose();
+    homeController.socket.off('message/$idChat');
+    homeController.socket.off('writing/$idChat/${friend.id}');
+    // homeController.socket.off('seen/$idChat');
+  }
+
 }

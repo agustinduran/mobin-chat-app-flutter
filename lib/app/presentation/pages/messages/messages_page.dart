@@ -37,9 +37,13 @@ class MessagesPage extends StatelessWidget {
             fontWeight: FontWeight.bold
           ),
         ),
-        subtitle: Text(
+        subtitle: controller.isWriting.value == true 
+        ? Text(
           'user-status-disconnected'.tr,
-          style: const TextStyle(color: Colors.grey)
+          style: const TextStyle(color: Colors.grey))
+        : Text(
+          'user-status-writing'.tr,
+          style: const TextStyle(color: Colors.green)
         ),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios),
@@ -88,6 +92,7 @@ class MessagesPage extends StatelessWidget {
             flex: 10,
             child: TextField(
               maxLength: 80,
+              onChanged: (String text) => controller.emitWriting(),
               controller: controller.messageField,
               keyboardType: TextInputType.text,
               decoration: InputDecoration(
@@ -113,6 +118,8 @@ class MessagesPage extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 20),
       child: ListView(
+        reverse: true,
+        controller: controller.scroll,
         children: _createMessages(),
       )
     );

@@ -64,6 +64,7 @@ class MessageTranslations extends Translations {
       'chat-created-success' : 'Chat created successfully',
       // CHAT STATES
       'user-status-disconnected' : 'Disconected',
+      'user-status-writing' : 'Writing ...',
 
 
 
@@ -193,6 +194,7 @@ class MessageTranslations extends Translations {
       'chat-created-success' : 'Chat creado satisfactoriamente',
       // CHAT STATES
       'user-status-disconnected' : 'Desconectado',
+      'user-status-writing' : 'Escribiendo ...',
       
     },
   };

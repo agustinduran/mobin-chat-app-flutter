@@ -26,6 +26,8 @@ class MessagesController extends GetxController {
 
   HomeController homeController = Get.find();
 
+  ScrollController scroll = ScrollController();
+
   MessagesController() {
     createChat();
   }
@@ -43,6 +45,7 @@ class MessagesController extends GetxController {
       idChat = generalResponse.data as int;
       getMessages();
       listenMessage();
+      listenWriting();
     }
 
     return generalResponse;
@@ -86,7 +89,13 @@ class MessagesController extends GetxController {
 
     messagesList.clear();
     messagesList.addAll(messages);
+
+    Future.delayed(const Duration(milliseconds: 100), () {
+      scroll.jumpTo(scroll.position.minScrollExtent);
+    });
   }
+
+  // COMUNICATION WITH SOCKET
 
   void listenMessage() {
     homeController.socket.on('message/$idChat', (data) {
@@ -99,6 +108,25 @@ class MessagesController extends GetxController {
     print('EmitMessage');
     homeController.socket.emit('message', {
       'id_chat': idChat
+    });
+  }
+
+  var isWriting = false.obs;
+
+  void listenWriting() {
+    homeController.socket.on('writing/$idChat/${friend.id}', (data) {
+      isWriting.value = true;
+      Future.delayed(const Duration(milliseconds: 2000), () {
+        isWriting.value = false;
+      });
+    });
+  }
+
+  void emitWriting() {
+    print('EmitWriting');
+    homeController.socket.emit('writing', {
+      'id_chat': idChat,
+      'id_user': user.id
     });
   }
 

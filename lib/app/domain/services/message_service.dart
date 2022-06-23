@@ -19,39 +19,22 @@ class MessageService extends GetConnect {
     return response;
   }
 
-  // Future<Response> login(String email, String password) async {
-  //   Response response = await post(
-  //     _urlLogin,
-  //     {
-  //       'username': email,
-  //       'password': password
-  //     },
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     }
-  //   );
-
-  //   return response;
-  // }
-
-  // Future<Response> getUser(String email, String password) async {
-  //   Response response = await post(
-  //     _urlLogin,
-  //     {
-  //       'username': email,
-  //       'password': password
-  //     },
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     }
-  //   );
-
-  //   return response;
-  // }
-
   Future<Response> getMessages(String idChat, String token) async {
     Response response = await get(
       _urlMessage + idChat,
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': token
+      }
+    );
+
+    return response;
+  }
+
+  Future<Response> updateMessageToSeen(String idMessage, String token) async {
+    Response response = await patch(
+      _urlMessage + idMessage,
+      {},
       headers: {
         'Content-Type': 'application/json',
         'Authorization': token

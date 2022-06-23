@@ -46,6 +46,7 @@ class MessagesController extends GetxController {
       getMessages();
       listenMessage();
       listenWriting();
+      listenSeen();
     }
 
     return generalResponse;
@@ -90,6 +91,14 @@ class MessagesController extends GetxController {
     messagesList.clear();
     messagesList.addAll(messages);
 
+    messages.forEach((m) async {
+      //TODO: Use const
+      if (m.status != 'SEEN' && m.idReceiver == user.id) {
+        await service.updateMessageToSeen(m.id.toString(), token);
+        emitSeen();
+      }
+    });
+
     Future.delayed(const Duration(milliseconds: 100), () {
       scroll.jumpTo(scroll.position.minScrollExtent);
     });
@@ -130,13 +139,27 @@ class MessagesController extends GetxController {
     });
   }
 
-    @override
+  void listenSeen() {
+    homeController.socket.on('seen/$idChat', (data) {
+      print('ListenSeen');
+      getMessages();
+    });
+  }
+
+  void emitSeen() {
+    print('EmitSeen');
+    homeController.socket.emit('seen', {
+      'id_chat': idChat
+    });
+  }
+
+  @override
   void onClose() {
     super.onClose();
     scroll.dispose();
     homeController.socket.off('message/$idChat');
     homeController.socket.off('writing/$idChat/${friend.id}');
-    // homeController.socket.off('seen/$idChat');
+    homeController.socket.off('seen/$idChat');
   }
 
 }

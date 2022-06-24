@@ -28,9 +28,10 @@ class Environment {
   static const ENDPOINT_LOGIN   = '/api/auth/login/';
   static const ENDPOINT_SIGN_UP = '/api/auth/register/';
 
-  static const ENDPOINT_USER    = '/api/users/';
-  static const ENDPOINT_CHAT    = '/api/chats/';
-  static const ENDPOINT_MESSAGE = '/api/messages/';
+  static const ENDPOINT_USER      = '/api/users/';
+  static const ENDPOINT_CHAT      = '/api/chats/';
+  static const ENDPOINT_CHAT_USER = '/api/chats/user/';
+  static const ENDPOINT_MESSAGE   = '/api/messages/';
 
   static const ENDPOINT_SOCKET_CHAT = '/sockets/chat/';
   // External assets

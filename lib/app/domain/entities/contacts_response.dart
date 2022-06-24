@@ -17,7 +17,7 @@ class ContactsResponse {
 
     factory ContactsResponse.fromJson(Map<String, dynamic> json) => ContactsResponse(
         success: json["success"],
-        users: json["users"] == null ? null : List<User>.from(json["users"].map((x) => User.fromJson(x))),
+        users: json["data"] == null ? null : List<User>.from(json["data"].map((x) => User.fromJson(x))),
         from: json["from"],
     );
 

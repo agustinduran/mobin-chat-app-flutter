@@ -1,7 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:mobin_app/app/data/environment.dart';
 import 'package:mobin_app/app/data/models/chat.dart';
 import 'package:mobin_app/app/data/models/message.dart';
 import 'package:mobin_app/app/data/models/user.dart';
@@ -34,8 +33,8 @@ class MessagesController extends GetxController {
 
   Future<GeneralResponse> createChat() async {
     Chat chat = Chat(
-      idUserTransmitter: user.id,
-      idUserReceiver: friend.id
+      idUser1: user.id,
+      idUser2: friend.id
     );
 
     Response response = await chatService.create(chat, token);
@@ -116,7 +115,8 @@ class MessagesController extends GetxController {
   void emitMessage() {
     print('EmitMessage');
     homeController.socket.emit('message', {
-      'id_chat': idChat
+      'id_chat': idChat,
+      'id_user': user.id
     });
   }
 

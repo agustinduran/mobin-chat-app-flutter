@@ -35,21 +35,6 @@ class UserService extends GetConnect {
     return response;
   }
 
-  // Future<Response> getUser(String email, String password) async {
-  //   Response response = await post(
-  //     _urlLogin,
-  //     {
-  //       'username': email,
-  //       'password': password
-  //     },
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     }
-  //   );
-
-  //   return response;
-  // }
-
   Future<Response> getUsers(String token) async {
     Response response = await get(
       _urlUser,

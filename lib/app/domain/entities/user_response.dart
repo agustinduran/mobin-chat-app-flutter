@@ -21,7 +21,7 @@ class UserResponse {
 
     factory UserResponse.fromJson(Map<String, dynamic> json) => UserResponse(
         success: json["success"],
-        user: json["user"] != null ? User.fromJson(json["user"]) : null,
+        user: json["data"] != null ? User.fromJson(json["data"]) : null,
         from: json["from"],
         message: json["message"]
     );

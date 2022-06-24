@@ -17,5 +17,4 @@ class ContactsController extends GetxController {
     return resp;
   }
 
-
 }
